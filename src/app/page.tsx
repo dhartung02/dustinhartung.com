@@ -96,6 +96,22 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Current Focus
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold">
+            Building the next generation of AI application experiences
+          </h2>
+          <p className="mt-4 max-w-3xl leading-8 text-neutral-300">
+            I’m especially interested in AI products that help users move from intent
+            to working software faster — through better templates, workflow
+            orchestration, product quality, and rapid iteration.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
