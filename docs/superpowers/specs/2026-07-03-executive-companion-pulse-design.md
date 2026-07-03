@@ -26,22 +26,24 @@ Add a new portfolio case study, presented as a premium narrative product page (S
 - New route: `src/app/work/executive-companion-pulse/page.tsx` (App Router).
 - New directory: `src/components/pulse/`
   - `PhoneFrame.tsx` — reusable phone chrome (generic rounded bezel + notch, relative sizing; not a literal Apple trademark asset).
-  - `charts/` — hand-rolled SVG primitives, no charting library: `Sparkline`, `Donut`, `Gauge`, `HorizontalBar`, `ScatterPlot`, `MiniFunnel`, `ProgressRing`.
+  - `PulseLogo.tsx` — small original SVG mark (circle + pulse-line), used in the Hero. Not a reproduction of any real product's logo.
+  - `charts/` — hand-rolled SVG primitives, no charting library: `Sparkline`, `Donut`, `Gauge`, `HorizontalBar`, `ScatterPlot`, `MiniFunnel`, `ProgressRing`, `HeatMap`.
   - `screens/` — one component per phone screen: `ExecutiveFeedScreen`, `CustomerIntelligenceScreen`, `CommerceIntelligenceScreen`, `BehaviorIntelligenceScreen`, `AIBriefingScreen`.
-  - `sections/` — page-level layout components: `Hero`, `Opportunity`, `NarrativeSection` (shared alternating phone/copy layout consumed by the 5 screen sections), `Outcome`.
+  - `sections/` — page-level layout components: `Hero`, `CaseStudyOverview`, `MyRole`, `NarrativeSection` (shared alternating phone/copy layout consumed by the 5 screen sections), `AIBriefingSection` (centerpiece treatment), `Outcome`, `Closing`.
   - `content.ts` — single typed source of truth for all copy, demo chart data, and the résumé-sourced facts. Components stay presentational; all text/data lives here.
 - Icons are imported directly from `lucide-react` at each use site (no wrapper/re-export layer).
 
 ## Page flow (narrative scroll)
 
-1. **Hero** — "Executive Companion Pulse," one-line positioning, a gently-floating phone, 3–4 fact badges sourced from `content.ts`. The IP-safety disclaimer renders immediately below the hero.
-2. **The Opportunity** — text-only section, no phone: Problem → Market Gap → Product Thesis → Role → Timeline.
-3. **Executive Feed** — phone left / copy right. Copy: what executives needed, why desktop dashboards fell short, why mobile changed the equation. Health cards lift slightly on hover; progress rings animate in on scroll.
-4. **Customer Intelligence** — copy left / phone right (layout alternates). Lifecycle, segmentation, value mapping, customer health. SVG scatterplot (Value Matrix) draws in on scroll.
-5. **Commerce Intelligence** — phone left / copy right. Catalog, revenue, category health, inventory. Horizontal bars animate width on scroll.
-6. **Behavior Intelligence** — copy left / phone right. Signals, intent, predictive insight. Mini funnel + heat map; one "hot" signal pulses subtly.
-7. **AI Briefing** — centerpiece section, largest phone treatment. Briefing lines reveal progressively as the section scrolls into view — the most animation-forward section on the page.
-8. **Outcome** — What happened, lessons learned, technology, role, velocity, impact, built from the résumé-sourced facts and qualitative statements only:
+1. **Hero** — `PulseLogo` mark, "Executive Companion Pulse," one-line positioning, a gently-floating phone (showing the Executive Feed screen), 3–4 fact badges sourced from `content.ts`. The IP-safety disclaimer renders immediately below the hero.
+2. **Case Study Overview** — three cards, no phone: **The Insight** ("Executives don't want another login"), **The Product Thesis** ("Compress telemetry into intelligence"), **The Outcome** ("From side project to executive-sponsored initiative"). Replaces the earlier generic "Problem/Market Gap/Thesis" framing with sharper, non-redundant copy.
+3. **My Role** — text-only section, no phone: a two-column bullet list (Product Leadership / Technical Direction — technical bullets stay generic: React Native, TypeScript, GraphQL APIs, enterprise SSO authentication, feature-flagged rollout, production telemetry, automated test coverage — no specific vendor/tool names), plus the velocity metrics grid (Days ~75, Commits 261, Test files 63, Test cases 748, Lines of code ~75,000 — same résumé-sourced facts as the Hero badges, not duplicated as prose elsewhere on the page).
+4. **Executive Feed** — phone left / copy right. Copy: what executives needed, why desktop dashboards fell short, why mobile changed the equation. Health cards lift slightly on hover; progress rings animate in on scroll.
+5. **Customer Intelligence** — copy left / phone right (layout alternates). Lifecycle, segmentation, value mapping, customer health. SVG scatterplot (Value Matrix) draws in on scroll.
+6. **Commerce Intelligence** — phone left / copy right. Catalog, revenue, category health, inventory. Horizontal bars animate width on scroll.
+7. **Behavior Intelligence** — copy left / phone right. Signals, intent, predictive insight. Mini funnel + heat map; one "hot" signal pulses subtly.
+8. **AI Briefing** — centerpiece section, largest phone treatment. Briefing lines reveal progressively as the section scrolls into view — the most animation-forward section on the page.
+9. **Outcome** — qualitative statements only, no restated numbers:
    - Grew from an innovation project into an executive-sponsored product initiative.
    - Reduced the time required for executives to understand platform health.
    - Consolidated complex enterprise marketing telemetry into decision-ready mobile experiences.
@@ -53,6 +55,7 @@ Add a new portfolio case study, presented as a premium narrative product page (S
    - AI agent over customer/platform data
    - Predictive risk detection
    - Delegation and team follow-up workflows
+10. **Closing** — a large centered pull-quote styled like the homepage's "Current Focus" treatment (`rounded-3xl border border-cyan-300/20 bg-cyan-300/10`): a short "why this matters" statement tying back to the opening problem. No new facts introduced here — purely a closing beat.
 
 ## Motion & accessibility
 
@@ -87,4 +90,12 @@ Captured only as the "What I'd build next" bullets in the Outcome section — no
 
 ## Implementation note
 
-An earlier, uncommitted prototype (`src/app/work/executive-companion-pulse/`, `src/components/case-study/`) existed from before this design was finalized. It used a different scope (7 in-phone tabs including out-of-scope screens), a light color scheme, and in-phone tab navigation — all of which conflict with this spec. It was discarded rather than adapted; this spec is the sole source of truth for implementation.
+An earlier, uncommitted prototype (`src/app/work/executive-companion-pulse/`, `src/components/case-study/`) existed from before this design was finalized. It used a different scope (7 in-phone tabs including out-of-scope screens), a light color scheme, and in-phone tab navigation — all of which conflicted with this spec. The code was discarded rather than adapted.
+
+A second, independent session was concurrently producing its own spec (`docs/superpowers/specs/2026-07-02-executive-companion-pulse-design.md`) and plan (`docs/superpowers/plans/2026-07-02-executive-companion-pulse.md`) for the same feature, unaware of the scope/guardrails negotiated in this document. Per Dustin's direction, this spec was merged with the reusable parts of that work:
+
+**Adopted from the other session:** the "Case Study Overview" three-card framing (Insight/Thesis/Outcome), the "My Role" section structure and its product-leadership bullet list, the velocity metrics grid, the "Closing" pull-quote section, and a small `PulseLogo` mark.
+
+**Explicitly not adopted:** its ~10-screen scope (Pulse Metrics, Action Center, Signal Export, Job Monitor, Settings), bottom tab-bar navigation, a light-mode-inside-the-phone palette, and its "Technical Direction" bullets naming specific third-party vendors (those are genericized here — see My Role above — consistent with the homepage card copy Dustin already dictated, which also avoids naming specific vendor tools).
+
+This spec (2026-07-03) remains the sole source of truth for implementation. The 2026-07-02 spec/plan files are left in place (not deleted) pending Dustin's own decision on whether to remove them.
