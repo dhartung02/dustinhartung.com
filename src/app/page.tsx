@@ -1,8 +1,27 @@
-const work = [
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+type WorkItem = {
+  title: string;
+  tag: string;
+  text: string;
+  href?: string;
+  highlights?: string[];
+};
+
+const work: WorkItem[] = [
   {
-    title: "Executive Dashboard",
+    title: "Executive Companion Pulse",
     tag: "0→1 production mobile app",
-    text: "Conceived, built, and shipped Acoustic’s first executive mobile app using React Native, TypeScript, Okta, LaunchDarkly, DataDog, and AI-assisted development.",
+    text: "Conceived, defined, and built a 0→1 executive mobile companion that transformed complex enterprise marketing telemetry into decision-ready insights, AI briefings, and actionable recommendations.",
+    href: "/work/executive-companion-pulse",
+    highlights: [
+      "AI-assisted development",
+      "React Native + TypeScript",
+      "Executive intelligence dashboards",
+      "Product strategy, UX, architecture, and delivery",
+      "Grew from an innovation project into an executive-sponsored product initiative",
+    ],
   },
   {
     title: "Product Catalog",
@@ -84,16 +103,51 @@ export default function Home() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          {work.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
-            >
-              <p className="text-sm font-semibold text-cyan-300">{item.tag}</p>
-              <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-4 leading-7 text-neutral-400">{item.text}</p>
-            </article>
-          ))}
+          {work.map((item) => {
+            const cardBody = (
+              <>
+                <p className="text-sm font-semibold text-cyan-300">{item.tag}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
+                <p className="mt-4 leading-7 text-neutral-400">{item.text}</p>
+                {item.highlights ? (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-neutral-300"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                {item.href ? (
+                  <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-cyan-300">
+                    View case study
+                    <ArrowRight className="h-4 w-4" />
+                  </p>
+                ) : null}
+              </>
+            );
+
+            if (item.href) {
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300/40 hover:bg-white/[0.06]"
+                >
+                  {cardBody}
+                </Link>
+              );
+            }
+
+            return (
+              <article key={item.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+                {cardBody}
+              </article>
+            );
+          })}
         </div>
       </section>
 
