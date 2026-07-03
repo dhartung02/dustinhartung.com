@@ -41,7 +41,7 @@ Add a new portfolio case study, presented as a premium narrative product page (S
 4. **Executive Feed** — phone left / copy right. Copy: what executives needed, why desktop dashboards fell short, why mobile changed the equation. Health cards lift slightly on hover; progress rings animate in on scroll.
 5. **Customer Intelligence** — copy left / phone right (layout alternates). Lifecycle, segmentation, value mapping, customer health. SVG scatterplot (Value Matrix) draws in on scroll.
 6. **Commerce Intelligence** — phone left / copy right. Catalog, revenue, category health, inventory. Horizontal bars animate width on scroll.
-7. **Behavior Intelligence** — copy left / phone right. Signals, intent, predictive insight. Mini funnel + heat map; one "hot" signal pulses subtly.
+7. **Behavior Intelligence** — copy left / phone right. Signals, intent, predictive insight. Mini funnel + heat map; the top signal is visually emphasized (position, weight) but does not pulse or loop — kept static per the "one looping animation total" motion rule below.
 8. **AI Briefing** — centerpiece section, largest phone treatment. Briefing lines reveal progressively as the section scrolls into view — the most animation-forward section on the page.
 9. **Outcome** — qualitative statements only, no restated numbers:
    - Grew from an innovation project into an executive-sponsored product initiative.
@@ -99,3 +99,5 @@ A second, independent session was concurrently producing its own spec (`docs/sup
 **Explicitly not adopted:** its ~10-screen scope (Pulse Metrics, Action Center, Signal Export, Job Monitor, Settings), bottom tab-bar navigation, a light-mode-inside-the-phone palette, and its "Technical Direction" bullets naming specific third-party vendors (those are genericized here — see My Role above — consistent with the homepage card copy Dustin already dictated, which also avoids naming specific vendor tools).
 
 This spec (2026-07-03) remains the sole source of truth for implementation. The 2026-07-02 spec/plan files are left in place (not deleted) pending Dustin's own decision on whether to remove them.
+
+**Correction (found during Task 10's code review):** the original "Behavior Intelligence" page-flow bullet called for a "hot signal pulses subtly" effect, which contradicts the "only looping animation is the hero phone's float" motion rule below — a genuine internal contradiction introduced when merging source material. Resolved per Dustin's direction: no second loop; the top signal stays static, emphasized only by position/weight. The plan and its implementation were never out of sync with each other on this point — only the design spec's two sections briefly contradicted each other, now fixed.
