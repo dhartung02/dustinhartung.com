@@ -124,7 +124,7 @@ export default function Home() {
                 {item.href ? (
                   <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-cyan-300">
                     View case study
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
                   </p>
                 ) : null}
               </>
