@@ -73,7 +73,7 @@ Add a new portfolio case study, presented as a premium narrative product page (S
 ## Visual system & responsiveness
 
 - Extends the existing dark theme (`neutral-950` background, white text) already established on the homepage.
-- Primary palette: blue, cyan, white. Accents: emerald, amber, indigo. No purple anywhere on this page.
+- Primary palette: blue, cyan, navy, white, emerald — this is the dominant feel of the page. Amber is a minor accent (e.g. warnings/attention states). Indigo, if used at all, is a minor accent only — never a primary or dominant color. No purple anywhere on this page.
 - Alternating two-column grid (phone + copy) collapses to a single stacked column below the `lg` breakpoint. `PhoneFrame` is sized in relative units (max-width/aspect-ratio) so it never overflows or crops at any viewport width.
 - All charts are inline SVG, redrawn from scratch for this page (no shared code with any prior/employer design).
 
