@@ -29,6 +29,7 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Executive Feed"
         title="A single, trustworthy read on business health"
         phoneLabel="Executive Feed"
+        reverse
         bullets={[
           "Executives needed one glanceable score, not six dashboards spread across desktop tools.",
           "Desktop dashboards assumed a desk and free time — executives had neither between meetings.",
@@ -42,7 +43,6 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Customer Intelligence"
         title="From raw accounts to a value map"
         phoneLabel="Customer Intelligence"
-        reverse
         bullets={[
           "Lifecycle stage, engagement, and spend combine into one Customer Value Matrix.",
           "Segmentation replaces spreadsheets — executives see who's growing and who's at risk.",
@@ -56,6 +56,7 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Commerce Intelligence"
         title="Catalog performance, without the spreadsheet"
         phoneLabel="Commerce Intelligence"
+        reverse
         bullets={[
           "Revenue, category health, and inventory status roll up into one overview.",
           "Top movers surface automatically — no manual pivot tables required.",
@@ -69,7 +70,6 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Behavior Intelligence"
         title="Turning raw signals into prioritized action"
         phoneLabel="Behavior Intelligence"
-        reverse
         bullets={[
           "Behavioral signals are scored, mixed, and funneled down to what's worth acting on.",
           "A lightweight heat map shows where engagement is concentrating in real time.",
