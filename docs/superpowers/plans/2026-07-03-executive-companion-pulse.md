@@ -319,7 +319,12 @@ export function usePrefersReducedMotion(): boolean {
 // src/components/pulse/revealAnimation.ts
 import type { Transition } from "framer-motion";
 
-type MotionTarget = Record<string, number | string>;
+// Closed set of animatable properties — keeps this file's "transform/opacity only"
+// motion rule enforced at compile time. Extend deliberately if a new case is needed.
+type MotionTarget = Partial<Record<
+  "opacity" | "x" | "y" | "scale" | "scaleX" | "scaleY" | "strokeDashoffset",
+  number
+>>;
 
 type RevealProps = {
   initial?: MotionTarget;
@@ -760,7 +765,7 @@ export default function HeatMap({ grid, color = "#22d3ee" }: HeatMapProps) {
 - [ ] **Step 9: Typecheck and lint**
 
 Run: `npx tsc --noEmit && npm run lint`
-Expected: no errors. If TypeScript rejects `strokeDashoffset`/`scaleX`/etc. inside `initial`/`whileInView`/`animate` props, widen `MotionTarget` in `revealAnimation.ts` to `Record<string, number | string>` (already done) and confirm the prop is spread onto a `motion.*` element (not a plain DOM element) — framer-motion's target types accept arbitrary SVG presentation attributes and transform shorthands on `motion.*` components.
+Expected: no errors. `MotionTarget` is intentionally a closed union (`opacity`, `x`, `y`, `scale`, `scaleX`, `scaleY`, `strokeDashoffset`) so that animating a layout-affecting property (e.g. `width`) fails to typecheck — this is deliberate, not a bug. If a task legitimately needs a new animatable property not in this list, add it explicitly to the union in `revealAnimation.ts` rather than widening the type back to `Record<string, number | string>`. Confirm the prop is spread onto a `motion.*` element (not a plain DOM element) — framer-motion's target types accept these SVG presentation attributes and transform shorthands on `motion.*` components.
 
 - [ ] **Step 10: Commit**
 
