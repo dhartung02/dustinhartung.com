@@ -13,7 +13,7 @@ export default function CaseStudyOverview() {
     <section className="mx-auto max-w-6xl px-6 py-16">
       <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Case Study</p>
       <h2 className="mb-10 text-3xl font-semibold md:text-4xl">
-        From side project to executive-sponsored initiative
+        The story behind the product
       </h2>
 
       <div className="grid gap-6 md:grid-cols-3">
