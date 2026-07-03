@@ -42,7 +42,7 @@ export default function ExecutiveFeedScreen() {
             const Icon = item.status === "risk" ? AlertTriangle : item.status === "excellent" ? ShieldCheck : TrendingDown;
             return (
               <li key={item.id} className="flex items-start gap-2 text-[11px] text-slate-300">
-                <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: statusColor[item.status] }} />
+                <Icon aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: statusColor[item.status] }} />
                 <span>{item.label}</span>
               </li>
             );
