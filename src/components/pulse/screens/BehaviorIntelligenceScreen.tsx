@@ -19,7 +19,7 @@ export default function BehaviorIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Top Behavioral Signals</p>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Top Usage Signals</p>
         <HorizontalBar data={behaviorIntelligence.topSignals} color="#22d3ee" />
       </div>
 
@@ -42,12 +42,12 @@ export default function BehaviorIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Funnel</p>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Usage Funnel</p>
         <MiniFunnel data={behaviorIntelligence.funnel} color="#22d3ee" />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Engagement Heat Map</p>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Weekly Usage Pattern</p>
         <HeatMap grid={behaviorIntelligence.heatmap} color="#22d3ee" />
       </div>
     </div>

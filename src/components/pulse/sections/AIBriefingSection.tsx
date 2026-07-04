@@ -13,12 +13,13 @@ export default function AIBriefingSection() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-20 text-center">
       <motion.div {...revealAnimation(reduceMotion, { opacity: 0, y: 12 }, { opacity: 1, y: 0 })}>
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">AI Briefing</p>
-        <h2 className="mb-4 text-3xl font-semibold md:text-4xl">The centerpiece: a briefing, not a dashboard</h2>
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Future Direction</p>
+        <h2 className="mb-4 text-3xl font-semibold md:text-4xl">Designed for future intelligence</h2>
         <p className="mx-auto mb-10 max-w-2xl leading-7 text-slate-300">
-          Instead of asking executives to interpret charts, Pulse synthesizes what changed, what needs
-          attention, and where the opportunity is — with priority, impact, and confidence attached to
-          every recommendation.
+          While the shipped MVP focused on secure access, configurable metric cards, and executive-ready
+          telemetry views, the interaction model created a natural path toward AI-generated briefings. The
+          same trusted data foundation could eventually support summaries of what changed, what needs
+          review, and where leaders may want to focus.
         </p>
       </motion.div>
 
@@ -26,7 +27,7 @@ export default function AIBriefingSection() {
         className="mx-auto"
         {...revealAnimation(reduceMotion, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 })}
       >
-        <PhoneFrame label="AI Briefing" className="max-w-[340px]">
+        <PhoneFrame label="Concept: AI Briefing" className="max-w-[340px]">
           <AIBriefingScreen />
         </PhoneFrame>
       </motion.div>

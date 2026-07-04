@@ -12,10 +12,13 @@ export const statusColor: Record<Status, string> = {
 export type FactBadge = { label: string; value: string };
 
 export const heroFacts: FactBadge[] = [
-  { label: "Product type", value: "0→1 mobile app" },
-  { label: "Build time", value: "~75 days" },
+  { label: "Product", value: "0→1 mobile app" },
   { label: "Stack", value: "React Native + TypeScript" },
+  { label: "Auth", value: "Okta" },
+  { label: "Rollout", value: "LaunchDarkly" },
+  { label: "Observability", value: "DataDog" },
   { label: "Shipped", value: "Apple App Store approved" },
+  { label: "Approach", value: "AI-assisted development" },
 ];
 
 export const disclaimerLabel = "Representative Product Demonstration";
@@ -25,21 +28,21 @@ export const disclaimerBody =
 export const caseStudyOverview = [
   {
     eyebrow: "The Insight",
-    title: "Executives don't want another login",
+    title: "Executives had data — just not fast access to it",
     description:
-      "Executives rarely want to log into another complex marketing platform, but they still need confidence that revenue, customers, campaigns, and the platform itself are healthy.",
+      "Executives had access to platform and product data, but it was fragmented across desktop dashboards, static reports, Slack and email updates, and status meetings. The gap wasn't more dashboards — it was faster confidence between meetings.",
   },
   {
     eyebrow: "The Product Thesis",
-    title: "Compress telemetry into intelligence",
+    title: "Compress the operating view, not replicate the desktop",
     description:
-      "Mobile shouldn't replicate the desktop. It should compress complex telemetry into decision intelligence — what changed, what matters, and what to do next.",
+      "Mobile shouldn't recreate a desktop analytics workspace. The right experience is glanceable, secure, and configurable — trusted enough that executives could check in confidently between meetings.",
   },
   {
     eyebrow: "The Outcome",
     title: "From side project to executive-sponsored initiative",
     description:
-      "After an internal demo, executive interest helped rally a team around the concept and move it from an unofficial innovation effort into a funded product initiative.",
+      "After an internal demo, executive interest helped rally a team around the concept and move it from an unofficial effort into a funded, production-grade mobile initiative that shipped to the App Store.",
   },
 ];
 
@@ -54,9 +57,9 @@ export const roleLeadership = [
 export const roleTechnical = [
   "React Native and TypeScript",
   "GraphQL API integration",
-  "Enterprise SSO authentication",
-  "Feature-flagged rollout strategy",
-  "Production telemetry and observability",
+  "Okta authentication integration",
+  "LaunchDarkly feature flags and phased rollout",
+  "DataDog RUM and production observability",
   "Automated test coverage",
 ];
 
@@ -82,12 +85,12 @@ export const executiveFeed = {
   cards: [
     { id: "revenue", label: "Revenue Health", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88] },
     { id: "customer", label: "Customer Health", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74] },
-    { id: "campaign", label: "Campaign Performance", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
+    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
     { id: "platform", label: "Platform Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91] },
   ] as HealthCardData[],
   watchList: [
-    { id: "w1", label: "Campaign performance down 9% week over week", status: "watch" as Status },
-    { id: "w2", label: "3 accounts trending toward churn risk", status: "risk" as Status },
+    { id: "w1", label: "Product adoption trending down 9% this week", status: "watch" as Status },
+    { id: "w2", label: "3 accounts showing reduced activity this week", status: "watch" as Status },
     { id: "w3", label: "Platform uptime steady at 99.98%", status: "excellent" as Status },
   ],
 };
@@ -97,14 +100,14 @@ export type LifecycleStage = { label: string; value: number; color: string };
 export const customerIntelligence = {
   stats: [
     { label: "Active Accounts", value: "1,284" },
-    { label: "Avg. Health Score", value: "76" },
-    { label: "At-Risk Accounts", value: "42" },
+    { label: "Avg. Engagement Score", value: "76" },
+    { label: "Accounts Needing Review", value: "42" },
   ],
   lifecycle: [
     { label: "New", value: 18, color: statusColor.good },
     { label: "Growing", value: 34, color: statusColor.excellent },
     { label: "Stable", value: 31, color: statusColor.good },
-    { label: "At Risk", value: 17, color: statusColor.risk },
+    { label: "Needs Attention", value: 17, color: statusColor.watch },
   ] as LifecycleStage[],
   valueMatrix: [
     { id: "a1", x: 82, y: 74, r: 14, label: "Enterprise A" },
@@ -113,27 +116,6 @@ export const customerIntelligence = {
     { id: "a4", x: 68, y: 40, r: 12, label: "Mid-Market D" },
     { id: "a5", x: 20, y: 60, r: 7, label: "SMB E" },
     { id: "a6", x: 90, y: 90, r: 16, label: "Enterprise F" },
-  ],
-};
-
-export const commerceIntelligence = {
-  overview: [
-    { label: "Revenue", value: "$4.2M" },
-    { label: "Products", value: "1,860" },
-    { label: "Categories", value: "24" },
-    { label: "Conversion", value: "3.4%" },
-  ],
-  categoryPerformance: [
-    { label: "Outdoor", value: 88 },
-    { label: "Apparel", value: 72 },
-    { label: "Home", value: 64 },
-    { label: "Electronics", value: 51 },
-    { label: "Beauty", value: 40 },
-  ],
-  topMovers: [
-    { label: "Trail Runner Pro", changePct: 34, trend: [40, 46, 52, 61, 70, 82, 94] },
-    { label: "Insulated Bottle", changePct: 21, trend: [50, 53, 58, 60, 63, 68, 72] },
-    { label: "Weekend Duffel", changePct: -12, trend: [70, 66, 64, 61, 58, 55, 52] },
   ],
 };
 
@@ -148,16 +130,16 @@ export const behaviorIntelligence = {
     { label: "Pricing calculator use", value: 46 },
   ],
   signalMix: [
-    { label: "Intent", value: 38, color: statusColor.excellent },
+    { label: "Feature Usage", value: 38, color: statusColor.excellent },
     { label: "Engagement", value: 29, color: statusColor.good },
-    { label: "Risk", value: 21, color: statusColor.watch },
-    { label: "Firmographic", value: 12, color: "#38bdf8" },
+    { label: "Errors & Issues", value: 21, color: statusColor.watch },
+    { label: "Account Info", value: 12, color: "#38bdf8" },
   ],
   funnel: [
-    { label: "Signals Captured", value: 4200 },
-    { label: "Qualified", value: 1860 },
-    { label: "Prioritized", value: 640 },
-    { label: "Acted On", value: 210 },
+    { label: "Sessions", value: 4200 },
+    { label: "Active Users", value: 1860 },
+    { label: "Feature Engaged", value: 640 },
+    { label: "Repeat Use", value: 210 },
   ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
@@ -167,58 +149,40 @@ export const behaviorIntelligence = {
   ],
 };
 
-export type Priority = "high" | "medium" | "low";
-
 export type BriefingItem = {
   id: string;
   category: "changed" | "attention" | "opportunity";
   title: string;
   detail: string;
-  priority: Priority;
-  impact: Priority;
-  confidence: number;
-  estimatedValue: string;
 };
 
 export const aiBriefing: BriefingItem[] = [
   {
     id: "b1",
     category: "changed",
-    title: "Campaign performance dipped 9% this week",
-    detail: "Click-through rate fell across two active campaigns after a mid-week creative refresh.",
-    priority: "high",
-    impact: "medium",
-    confidence: 88,
-    estimatedValue: "~$40K at risk this cycle",
+    title: "Product adoption dipped this week",
+    detail: "A conceptual example: a sudden shift in a usage metric is one of the patterns a future summary could call out.",
   },
   {
     id: "b2",
     category: "attention",
-    title: "3 enterprise accounts trending toward churn",
-    detail: "Engagement dropped for three consecutive weeks with no executive touchpoint logged.",
-    priority: "high",
-    impact: "high",
-    confidence: 81,
-    estimatedValue: "~$210K in at-risk ARR",
+    title: "A handful of accounts show reduced activity",
+    detail: "A conceptual example: multiple weeks of declining engagement is the kind of signal a future briefing might surface for review.",
   },
   {
     id: "b3",
     category: "opportunity",
-    title: "Outdoor category demand accelerating",
-    detail: "Behavioral signals show rising intent two weeks ahead of the seasonal forecast.",
-    priority: "medium",
-    impact: "high",
-    confidence: 74,
-    estimatedValue: "~$85K upside if inventory shifts early",
+    title: "A usage trend is accelerating ahead of plan",
+    detail: "A conceptual example: an emerging positive trend is the kind of early signal a future briefing might flag for attention.",
   },
 ];
 
 export const outcomeStatements = [
-  "Grew from an innovation project into an executive-sponsored product initiative.",
-  "Reduced the time required for executives to understand platform health.",
-  "Consolidated complex enterprise marketing telemetry into decision-ready mobile experiences.",
-  "Improved executive visibility into customer, campaign, and platform performance.",
-  "Enabled faster identification of risks and opportunities through AI-driven summaries and health indicators.",
+  "Gave executives and product leaders faster mobile access to trusted platform, product, and operational signals.",
+  "Created a production-ready mobile foundation for executive visibility.",
+  "Reduced dependence on manual status gathering and desktop-only dashboards.",
+  "Demonstrated how AI-assisted development could accelerate a production-grade internal product from concept to App Store approval.",
+  "Established reusable patterns for secure authentication, telemetry display, configurable cards, feature-flagged rollout, and production observability.",
 ];
 
 export const nextUp = [
@@ -229,4 +193,4 @@ export const nextUp = [
 ];
 
 export const closingStatement =
-  "Executives don't need more dashboards — they need a trustworthy, glanceable signal they can act on from anywhere. Pulse is what that looks like when product thinking, UX, and hands-on engineering come from the same person.";
+  "Executives don't need more dashboards — they need a fast, trusted signal they can check from anywhere. Pulse is what that looks like when product thinking, UX, and hands-on engineering come from the same person.";

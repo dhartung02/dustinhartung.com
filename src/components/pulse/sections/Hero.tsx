@@ -21,8 +21,13 @@ export default function Hero() {
           </div>
           <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Executive Companion Pulse</h1>
           <p className="mt-4 text-xl text-slate-300 md:text-2xl">
-            An executive mobile intelligence platform — turning dense enterprise telemetry into
-            decision-ready insight.
+            A 0→1 executive mobile companion that turned platform telemetry into a fast, trusted
+            operating view.
+          </p>
+          <p className="mt-4 max-w-xl leading-7 text-slate-400">
+            Secure mobile access, glanceable health metrics, and configurable dashboards gave
+            executives product and platform visibility between meetings — built and shipped to
+            production.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -39,7 +44,7 @@ export default function Hero() {
           animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
           transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <PhoneFrame label="Executive Feed">
+          <PhoneFrame label="Executive Overview">
             <ExecutiveFeedScreen />
           </PhoneFrame>
         </motion.div>
