@@ -25,9 +25,10 @@ export default function AIBriefingScreen() {
   return (
     <div className="flex flex-col gap-3 text-slate-100">
       <div>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">Today&apos;s Executive Summary</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">Concept: AI-Generated Briefing</p>
         <p className="mt-1 text-[11px] leading-relaxed text-slate-400">
-          Three items need your attention today, prioritized by impact and confidence.
+          Illustrative concept, not part of the shipped MVP — a possible future extension of the same trusted data
+          foundation.
         </p>
       </div>
 
@@ -51,12 +52,6 @@ export default function AIBriefingScreen() {
               <div className="flex-1">
                 <p className="text-[11px] font-semibold leading-snug text-slate-100">{item.title}</p>
                 <p className="mt-1 text-[10px] leading-relaxed text-slate-400">{item.detail}</p>
-                <div className="mt-2 flex flex-wrap gap-1.5 text-[9px] uppercase tracking-wide text-slate-400">
-                  <span className="rounded-full border border-white/10 px-2 py-0.5">Priority: {item.priority}</span>
-                  <span className="rounded-full border border-white/10 px-2 py-0.5">Impact: {item.impact}</span>
-                  <span className="rounded-full border border-white/10 px-2 py-0.5">Confidence: {item.confidence}%</span>
-                </div>
-                <p className="mt-1.5 text-[10px] font-medium text-emerald-400">{item.estimatedValue}</p>
               </div>
             </div>
           </motion.div>

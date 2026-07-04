@@ -18,12 +18,12 @@ export default function CustomerIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Customer Value Matrix</p>
-        <ScatterPlot data={customerIntelligence.valueMatrix} xLabel="Spend" yLabel="Engagement" />
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Account Activity Overview</p>
+        <ScatterPlot data={customerIntelligence.valueMatrix} xLabel="Usage" yLabel="Engagement" />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Lifecycle</p>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Account Status Mix</p>
         <div className="flex items-center gap-3">
           <Donut
             data={customerIntelligence.lifecycle.map((stage) => ({

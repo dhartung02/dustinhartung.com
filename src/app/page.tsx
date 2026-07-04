@@ -13,14 +13,14 @@ const work: WorkItem[] = [
   {
     title: "Executive Companion Pulse",
     tag: "0→1 production mobile app",
-    text: "Conceived, defined, and built a 0→1 executive mobile companion that transformed complex enterprise marketing telemetry into decision-ready insights, AI briefings, and actionable recommendations.",
+    text: "Conceived, designed, and built a 0→1 executive mobile companion that turned platform and product telemetry into a fast, trusted operating view for executives.",
     href: "/work/executive-companion-pulse",
     highlights: [
       "AI-assisted development",
-      "React Native + TypeScript",
-      "Executive intelligence dashboards",
+      "React Native + TypeScript + Okta",
+      "LaunchDarkly feature flags + DataDog observability",
       "Product strategy, UX, architecture, and delivery",
-      "Grew from an innovation project into an executive-sponsored product initiative",
+      "Grew from an innovation project into an executive-sponsored initiative",
     ],
   },
   {
