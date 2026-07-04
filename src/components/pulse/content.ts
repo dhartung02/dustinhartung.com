@@ -187,6 +187,7 @@ export const outcomeStatements = [
 
 export const nextUp = [
   "AI-generated executive briefings",
+  "A data-connected AI agent (via MCP) with proactive suggestions",
   "Explainable anomaly and risk detection",
   "Recommended follow-up workflows",
   "Delegation and ownership tracking",

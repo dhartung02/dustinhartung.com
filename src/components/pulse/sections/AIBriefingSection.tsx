@@ -17,9 +17,9 @@ export default function AIBriefingSection() {
         <h2 className="mb-4 text-3xl font-semibold md:text-4xl">Designed for future intelligence</h2>
         <p className="mx-auto mb-10 max-w-2xl leading-7 text-slate-300">
           While the shipped MVP focused on secure access, configurable metric cards, and executive-ready
-          telemetry views, the interaction model created a natural path toward AI-generated briefings. The
-          same trusted data foundation could eventually support summaries of what changed, what needs
-          review, and where leaders may want to focus.
+          telemetry views, the interaction model created a natural path toward deeper AI capability — an
+          agent connected across the full data surface, via MCP, that could offer proactive suggestions and
+          recommendations rather than just static summaries.
         </p>
       </motion.div>
 
