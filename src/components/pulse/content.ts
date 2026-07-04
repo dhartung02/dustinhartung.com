@@ -151,12 +151,12 @@ export const behaviorIntelligence = {
     { label: "Active → Engaged", value: 34 },
     { label: "Engaged → Repeat", value: 33 },
   ],
-  topProductAreas: [
-    { label: "Dashboards", value: 88 },
-    { label: "Reporting", value: 74 },
-    { label: "Data Export", value: 61 },
-    { label: "Integrations", value: 52 },
-    { label: "Mobile Access", value: 45 },
+  topCategories: [
+    { label: "Electronics", value: 88 },
+    { label: "Apparel", value: 74 },
+    { label: "Home & Garden", value: 61 },
+    { label: "Beauty", value: 52 },
+    { label: "Grocery", value: 45 },
   ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
