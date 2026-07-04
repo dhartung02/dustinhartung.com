@@ -25,7 +25,7 @@ export default function AIBriefingScreen() {
   return (
     <div className="flex flex-col gap-3 text-slate-100">
       <div>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">Concept: AI-Generated Briefing</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">Concept: AI Briefing</p>
         <p className="mt-1 text-[11px] leading-relaxed text-slate-400">
           Illustrative concept, not part of the shipped MVP — a possible future extension of the same trusted data
           foundation.
