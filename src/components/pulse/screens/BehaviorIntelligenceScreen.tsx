@@ -4,6 +4,8 @@
 import Donut from "../charts/Donut";
 import HeatMap from "../charts/HeatMap";
 import HorizontalBar from "../charts/HorizontalBar";
+import UserJourney from "../charts/UserJourney";
+import TrendBadge from "../charts/TrendBadge";
 import { behaviorIntelligence } from "../content";
 
 export default function BehaviorIntelligenceScreen() {
@@ -12,7 +14,10 @@ export default function BehaviorIntelligenceScreen() {
       <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3">
         <div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Signal Health</p>
-          <p className="text-xl font-semibold text-cyan-300">{behaviorIntelligence.signalHealth}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-xl font-semibold text-cyan-300">{behaviorIntelligence.signalHealth}</p>
+            <TrendBadge deltaPct={behaviorIntelligence.signalHealthDeltaPct} />
+          </div>
         </div>
         <p className="text-[10px] text-slate-400">Updated {behaviorIntelligence.freshnessMinutesAgo}m ago</p>
       </div>
@@ -23,8 +28,13 @@ export default function BehaviorIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Top Performing Categories</p>
-        <HorizontalBar data={behaviorIntelligence.topCategories} color="#34d399" />
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Top Functional Areas</p>
+        <HorizontalBar data={behaviorIntelligence.topFunctionalAreas} color="#34d399" />
+      </div>
+
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Common User Paths</p>
+        <UserJourney stages={behaviorIntelligence.userJourney.stages} flows={behaviorIntelligence.userJourney.flows} />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">

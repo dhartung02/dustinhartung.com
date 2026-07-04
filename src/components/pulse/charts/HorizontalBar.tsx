@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
 import { revealAnimation } from "../revealAnimation";
+import TrendBadge from "./TrendBadge";
 
-export type BarItem = { label: string; value: number };
+export type BarItem = { label: string; value: number; delta?: number; invertDelta?: boolean };
 
 type HorizontalBarProps = {
   data: BarItem[];
@@ -35,6 +36,9 @@ export default function HorizontalBar({
             />
           </div>
           <span className="w-10 shrink-0 text-right text-[11px] text-slate-400">{valueFormatter(item.value)}</span>
+          {item.delta !== undefined ? (
+            <TrendBadge deltaPct={item.delta} invert={item.invertDelta} className="w-11 shrink-0 justify-end" />
+          ) : null}
         </div>
       ))}
     </div>

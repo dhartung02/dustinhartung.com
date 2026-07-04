@@ -77,18 +77,20 @@ export type HealthCardData = {
   score: number;
   status: Status;
   trend: number[];
+  deltaPct: number;
 };
 
 export const executiveFeed = {
   overallScore: 82,
   overallStatus: "good" as Status,
+  overallDeltaPct: 3,
   cards: [
-    { id: "platform", label: "Platform Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91] },
-    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
-    { id: "customer", label: "Customer Activity", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74] },
-    { id: "operations", label: "Operational Status", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88] },
-    { id: "pipeline", label: "Data Pipeline Health", score: 85, status: "good", trend: [80, 82, 81, 83, 84, 84, 85] },
-    { id: "engagement", label: "Engagement Quality", score: 70, status: "good", trend: [65, 66, 68, 67, 69, 70, 70] },
+    { id: "platform", label: "Platform Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91], deltaPct: 4 },
+    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61], deltaPct: -9 },
+    { id: "customer", label: "Customer Activity", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74], deltaPct: 6 },
+    { id: "operations", label: "Operational Status", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88], deltaPct: 12 },
+    { id: "pipeline", label: "Data Pipeline Health", score: 85, status: "good", trend: [80, 82, 81, 83, 84, 84, 85], deltaPct: 2 },
+    { id: "engagement", label: "Engagement Quality", score: 70, status: "good", trend: [65, 66, 68, 67, 69, 70, 70], deltaPct: 1 },
   ] as HealthCardData[],
   risks: [
     { id: "w1", label: "Product adoption trending down 9% this week", categoryTag: "Product", status: "watch" as Status },
@@ -105,9 +107,9 @@ export type LifecycleStage = { label: string; value: number; color: string };
 
 export const customerIntelligence = {
   stats: [
-    { label: "Active Accounts", value: "1,284" },
-    { label: "Avg. Engagement Score", value: "76" },
-    { label: "New Customers", value: "231" },
+    { label: "Active Accounts", value: "1,284", deltaPct: 5 },
+    { label: "Avg. Engagement Score", value: "76", deltaPct: 2 },
+    { label: "New Customers", value: "231", deltaPct: 14 },
   ],
   lifecycle: [
     { label: "New", value: 18, color: statusColor.good },
@@ -128,17 +130,31 @@ export const customerIntelligence = {
     "Prioritize outreach to accounts trending from Growing to Stable.",
     "Scale successful engagement patterns while momentum is positive.",
   ],
+  retailDrillIn: {
+    funnel: [
+      { label: "Product Views", value: "18,204", deltaPct: 6 },
+      { label: "Added to Cart", value: "4,932", deltaPct: 3 },
+      { label: "Purchased", value: "1,614", deltaPct: -4 },
+      { label: "Cart Abandoned", value: "3,318", deltaPct: 9, invert: true },
+      { label: "Browse Abandoned", value: "9,847", deltaPct: 2, invert: true },
+    ],
+    trend: [
+      { label: "Interest", color: statusColor.good, data: [52, 58, 55, 63, 68, 71] },
+      { label: "Conversion", color: statusColor.excellent, data: [24, 26, 25, 29, 31, 33] },
+    ],
+  },
 };
 
 export const behaviorIntelligence = {
   signalHealth: 79,
+  signalHealthDeltaPct: 3,
   freshnessMinutesAgo: 6,
   topSignals: [
-    { label: "Weekly active users", value: 92 },
-    { label: "Feature adoption rate", value: 84 },
-    { label: "Workflow completions", value: 71 },
-    { label: "API usage volume", value: 58 },
-    { label: "Report usage", value: 46 },
+    { label: "Weekly active users", value: 92, delta: 6 },
+    { label: "Feature adoption rate", value: 84, delta: 9 },
+    { label: "Workflow completions", value: 71, delta: -2 },
+    { label: "API usage volume", value: 58, delta: 11 },
+    { label: "Report usage", value: 46, delta: -4 },
   ],
   signalMix: [
     { label: "Feature Usage", value: 38, color: statusColor.excellent },
@@ -151,12 +167,12 @@ export const behaviorIntelligence = {
     { label: "Active → Engaged", value: 34 },
     { label: "Engaged → Repeat", value: 33 },
   ],
-  topCategories: [
-    { label: "Electronics", value: 88 },
-    { label: "Apparel", value: 74 },
-    { label: "Home & Garden", value: 61 },
-    { label: "Beauty", value: 52 },
-    { label: "Grocery", value: 45 },
+  topFunctionalAreas: [
+    { label: "Dashboards", value: 88, delta: 3 },
+    { label: "Reporting", value: 74, delta: 5 },
+    { label: "Data Export", value: 61, delta: -2 },
+    { label: "Integrations", value: 52, delta: 8 },
+    { label: "Mobile Access", value: 45, delta: 15 },
   ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
@@ -164,6 +180,23 @@ export const behaviorIntelligence = {
     [0.6, 0.7, 0.8, 0.9, 1.0],
     [0.3, 0.3, 0.2, 0.4, 0.5],
   ],
+  userJourney: {
+    stages: [
+      ["Dashboard", "Search"],
+      ["Reports", "Alerts"],
+      ["Export", "Share"],
+    ],
+    flows: [
+      { from: "Dashboard", to: "Reports", value: 62 },
+      { from: "Dashboard", to: "Alerts", value: 18 },
+      { from: "Search", to: "Reports", value: 24 },
+      { from: "Search", to: "Alerts", value: 14 },
+      { from: "Reports", to: "Export", value: 51 },
+      { from: "Reports", to: "Share", value: 22 },
+      { from: "Alerts", to: "Export", value: 9 },
+      { from: "Alerts", to: "Share", value: 12 },
+    ],
+  },
 };
 
 export type BriefingCategory = "changed" | "watch" | "working" | "action";
