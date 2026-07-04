@@ -1,9 +1,12 @@
 // src/components/pulse/screens/CustomerIntelligenceScreen.tsx
 "use client";
 
+import { Target, AlertTriangle, TrendingUp } from "lucide-react";
 import Donut from "../charts/Donut";
 import ScatterPlot from "../charts/ScatterPlot";
 import { customerIntelligence } from "../content";
+
+const actionIcons = [Target, AlertTriangle, TrendingUp];
 
 export default function CustomerIntelligenceScreen() {
   return (
@@ -15,6 +18,21 @@ export default function CustomerIntelligenceScreen() {
             <p className="mt-0.5 text-[8.5px] leading-tight text-slate-400">{stat.label}</p>
           </div>
         ))}
+      </div>
+
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">What To Do</p>
+        <ul className="flex flex-col gap-2">
+          {customerIntelligence.whatToDo.map((item, index) => {
+            const Icon = actionIcons[index % actionIcons.length];
+            return (
+              <li key={item} className="flex items-start gap-2 text-[11px] leading-snug text-slate-300">
+                <Icon aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-300" />
+                <span>{item}</span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
