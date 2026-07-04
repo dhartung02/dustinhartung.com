@@ -83,10 +83,10 @@ export const executiveFeed = {
   overallScore: 82,
   overallStatus: "good" as Status,
   cards: [
-    { id: "revenue", label: "Revenue Health", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88] },
-    { id: "customer", label: "Customer Health", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74] },
-    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
     { id: "platform", label: "Platform Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91] },
+    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
+    { id: "customer", label: "Customer Activity", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74] },
+    { id: "operations", label: "Operational Status", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88] },
   ] as HealthCardData[],
   watchList: [
     { id: "w1", label: "Product adoption trending down 9% this week", status: "watch" as Status },
@@ -123,11 +123,11 @@ export const behaviorIntelligence = {
   signalHealth: 79,
   freshnessMinutesAgo: 6,
   topSignals: [
-    { label: "Pricing page revisit", value: 92 },
-    { label: "Demo request started", value: 84 },
-    { label: "Feature doc deep-read", value: 71 },
-    { label: "Competitor comparison", value: 58 },
-    { label: "Pricing calculator use", value: 46 },
+    { label: "Weekly active users", value: 92 },
+    { label: "Feature adoption rate", value: 84 },
+    { label: "Workflow completions", value: 71 },
+    { label: "API usage volume", value: 58 },
+    { label: "Report usage", value: 46 },
   ],
   signalMix: [
     { label: "Feature Usage", value: 38, color: statusColor.excellent },
@@ -186,10 +186,12 @@ export const outcomeStatements = [
 ];
 
 export const nextUp = [
-  "Insight → Action workflows",
-  "AI agent over customer/platform data",
-  "Predictive risk detection",
-  "Delegation and team follow-up workflows",
+  "AI-generated executive briefings",
+  "A data-connected AI agent (via MCP) with proactive suggestions",
+  "Explainable anomaly and risk detection",
+  "Recommended follow-up workflows",
+  "Delegation and ownership tracking",
+  "Drill-down to source data",
 ];
 
 export const closingStatement =
