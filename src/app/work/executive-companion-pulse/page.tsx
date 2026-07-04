@@ -31,7 +31,7 @@ export default function ExecutiveCompanionPulsePage() {
         reverse
         bullets={[
           "Executives needed a glanceable, configurable view of platform and business health — not another dashboard login.",
-          "Metric cards could be configured around whatever mattered most: revenue, customer activity, platform health, or product adoption.",
+          "Metric cards could be configured around whatever mattered most: platform health, product adoption, customer activity, or operational status.",
           "A secure mobile check-in replaced waiting for a desktop session or a status email.",
         ]}
       >
@@ -44,7 +44,7 @@ export default function ExecutiveCompanionPulsePage() {
         phoneLabel="Customer & Account Activity"
         bullets={[
           "Rather than asking executives to dig through account reports or wait for team summaries, the mobile view surfaced account activity and status indicators in a compact format for quick review.",
-          "High-level activity and adoption indicators helped highlight where executive attention might be needed.",
+          "High-level activity and adoption indicators helped highlight where executive attention might be needed — not churn prediction or account intelligence modeling.",
           "Designed for a fast read, not a full analyst workspace on a phone.",
         ]}
       >

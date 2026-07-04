@@ -17,7 +17,7 @@ export default function ExecutiveFeedScreen() {
       <div className="flex flex-col items-center gap-1 pt-1">
         <Gauge value={executiveFeed.overallScore} color={statusColor[executiveFeed.overallStatus]} size={140} />
         <p className="-mt-6 text-2xl font-semibold">{executiveFeed.overallScore}</p>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Executive Health Score</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Executive Snapshot</p>
       </div>
 
       <div className="grid grid-cols-2 gap-2.5">

@@ -127,3 +127,15 @@ After the first version shipped and was reviewed live, Dustin flagged that the n
 **Preferred vocabulary:** "glanceable," "trusted operating view," "executive-ready," "secure mobile access," "telemetry-backed," "configurable metric cards," "production-ready," "mobile-first," "foundation for future AI briefings."
 
 **What stays impressive, and why:** not a fictional AI platform, but the real execution — identifying the executive workflow gap, designing a mobile-first solution, building it largely solo to production grade, clearing enterprise auth/observability/testing/feature-flag/App-Store-approval bars, and using AI-assisted development to move faster than a traditional process. These are the proof points the copy should lean on.
+
+## Narrative grounding revision, pass 2 (after reviewing real app screenshots)
+
+Dustin shared actual screenshots of the real production app (used only as internal grounding reference for this pass — not stored in the repo, not copied pixel-for-pixel, per the project's standing IP-safety requirement) and asked for one more credibility pass:
+
+- **"Executive Health Score" → "Executive Snapshot"** (`ExecutiveFeedScreen.tsx`) — avoids implying a proprietary scoring model.
+- **Executive Overview's health-card set changed** from Revenue/Customer/Product Adoption/Platform to **Platform Health, Product Adoption, Customer Activity, Operational Status** — "Revenue Health" removed since revenue data wasn't confirmed as part of the shipped app's real scope.
+- **Product & Usage Signals' "Top Signals" replaced entirely.** The prior examples ("Pricing page revisit," "Demo request started," "Competitor comparison," "Pricing calculator use") were marketing/sales-intent signals that didn't match this app's real telemetry domain. Replaced with product/platform telemetry: weekly active users, feature adoption rate, workflow completions, API usage volume, report usage.
+- **"What I'd Build Next" (`nextUp`) tightened to 5 specific, disciplined future-state items:** AI-generated executive briefings, explainable anomaly and risk detection, recommended follow-up workflows, delegation and ownership tracking, drill-down to source data. ("Explainable" is a deliberate word choice — future AI features are framed as interpretable, not black-box.)
+- Customer & Account Activity copy tightened further: one bullet now explicitly states the feature is "not churn prediction or account intelligence modeling."
+
+No structural/architectural changes in this pass — content and copy only, within the components and data model already built.
