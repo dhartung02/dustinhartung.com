@@ -93,7 +93,11 @@ export const executiveFeed = {
   risks: [
     { id: "w1", label: "Product adoption trending down 9% this week", categoryTag: "Product", status: "watch" as Status },
     { id: "w2", label: "3 accounts showing reduced activity this week", categoryTag: "Customer", status: "watch" as Status },
-    { id: "w3", label: "Platform uptime steady at 99.98%", categoryTag: "Platform", status: "excellent" as Status },
+  ],
+  opportunities: [
+    { id: "o1", label: "Platform uptime steady at 99.98% this month", categoryTag: "Platform", status: "excellent" as Status },
+    { id: "o2", label: "Engagement quality up across top accounts", categoryTag: "Customer", status: "good" as Status },
+    { id: "o3", label: "Operational status trending toward an all-time high", categoryTag: "Operations", status: "excellent" as Status },
   ],
 };
 
@@ -103,7 +107,7 @@ export const customerIntelligence = {
   stats: [
     { label: "Active Accounts", value: "1,284" },
     { label: "Avg. Engagement Score", value: "76" },
-    { label: "Accounts Needing Review", value: "42" },
+    { label: "New Customers", value: "231" },
   ],
   lifecycle: [
     { label: "New", value: 18, color: statusColor.good },
@@ -147,6 +151,13 @@ export const behaviorIntelligence = {
     { label: "Active → Engaged", value: 34 },
     { label: "Engaged → Repeat", value: 33 },
   ],
+  topProductAreas: [
+    { label: "Dashboards", value: 88 },
+    { label: "Reporting", value: 74 },
+    { label: "Data Export", value: 61 },
+    { label: "Integrations", value: 52 },
+    { label: "Mobile Access", value: 45 },
+  ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
     [0.1, 0.2, 0.5, 0.4, 0.3],
@@ -176,25 +187,25 @@ export const aiBriefing: BriefingItem[] = [
     id: "b1",
     category: "changed",
     title: "Product adoption dipped this week",
-    detail: "A conceptual example: a sudden shift in a usage metric is one of the patterns a future summary could call out.",
+    detail: "Calculated automatically from usage telemetry — a rules-based comparison against the prior period, not AI-generated.",
   },
   {
     id: "b2",
     category: "watch",
     title: "A handful of accounts show reduced activity",
-    detail: "A conceptual example: multiple weeks of declining engagement is the kind of signal a future briefing might surface for review.",
+    detail: "Flagged deterministically once an account crosses a defined engagement-decline threshold.",
   },
   {
     id: "b3",
     category: "working",
     title: "A usage trend is accelerating ahead of plan",
-    detail: "A conceptual example: an emerging positive trend is the kind of early signal a future briefing might highlight as a win.",
+    detail: "Surfaced by a fixed rule comparing current trend velocity against target — a calculated highlight, not a prediction.",
   },
   {
     id: "b4",
     category: "action",
     title: "Review accounts with declining engagement",
-    detail: "A conceptual example: a future briefing could suggest a next step, with the option to delegate or track ownership.",
+    detail: "A standing recommendation tied directly to the watch-list rule above, with delegation and ownership tracking planned as a future enhancement.",
   },
 ];
 
