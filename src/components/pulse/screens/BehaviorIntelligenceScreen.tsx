@@ -2,7 +2,6 @@
 "use client";
 
 import Donut from "../charts/Donut";
-import MiniFunnel from "../charts/MiniFunnel";
 import HeatMap from "../charts/HeatMap";
 import HorizontalBar from "../charts/HorizontalBar";
 import { behaviorIntelligence } from "../content";
@@ -42,8 +41,13 @@ export default function BehaviorIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Usage Funnel</p>
-        <MiniFunnel data={behaviorIntelligence.funnel} color="#22d3ee" />
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Funnel Efficiency</p>
+        <HorizontalBar
+          data={behaviorIntelligence.funnelEfficiency}
+          color="#22d3ee"
+          max={100}
+          valueFormatter={(value) => `${value}%`}
+        />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">

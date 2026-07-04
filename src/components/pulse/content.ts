@@ -87,11 +87,13 @@ export const executiveFeed = {
     { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61] },
     { id: "customer", label: "Customer Activity", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74] },
     { id: "operations", label: "Operational Status", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88] },
+    { id: "pipeline", label: "Data Pipeline Health", score: 85, status: "good", trend: [80, 82, 81, 83, 84, 84, 85] },
+    { id: "engagement", label: "Engagement Quality", score: 70, status: "good", trend: [65, 66, 68, 67, 69, 70, 70] },
   ] as HealthCardData[],
-  watchList: [
-    { id: "w1", label: "Product adoption trending down 9% this week", status: "watch" as Status },
-    { id: "w2", label: "3 accounts showing reduced activity this week", status: "watch" as Status },
-    { id: "w3", label: "Platform uptime steady at 99.98%", status: "excellent" as Status },
+  risks: [
+    { id: "w1", label: "Product adoption trending down 9% this week", categoryTag: "Product", status: "watch" as Status },
+    { id: "w2", label: "3 accounts showing reduced activity this week", categoryTag: "Customer", status: "watch" as Status },
+    { id: "w3", label: "Platform uptime steady at 99.98%", categoryTag: "Platform", status: "excellent" as Status },
   ],
 };
 
@@ -117,6 +119,11 @@ export const customerIntelligence = {
     { id: "a5", x: 20, y: 60, r: 7, label: "SMB E" },
     { id: "a6", x: 90, y: 90, r: 16, label: "Enterprise F" },
   ],
+  whatToDo: [
+    "Review the 3 accounts flagged for reduced activity this week.",
+    "Prioritize outreach to accounts trending from Growing to Stable.",
+    "Scale successful engagement patterns while momentum is positive.",
+  ],
 };
 
 export const behaviorIntelligence = {
@@ -135,11 +142,10 @@ export const behaviorIntelligence = {
     { label: "Errors & Issues", value: 21, color: statusColor.watch },
     { label: "Account Info", value: 12, color: "#38bdf8" },
   ],
-  funnel: [
-    { label: "Sessions", value: 4200 },
-    { label: "Active Users", value: 1860 },
-    { label: "Feature Engaged", value: 640 },
-    { label: "Repeat Use", value: 210 },
+  funnelEfficiency: [
+    { label: "Sessions → Active", value: 44 },
+    { label: "Active → Engaged", value: 34 },
+    { label: "Engaged → Repeat", value: 33 },
   ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
@@ -149,11 +155,20 @@ export const behaviorIntelligence = {
   ],
 };
 
+export type BriefingCategory = "changed" | "watch" | "working" | "action";
+
 export type BriefingItem = {
   id: string;
-  category: "changed" | "attention" | "opportunity";
+  category: BriefingCategory;
   title: string;
   detail: string;
+};
+
+export const briefingCategoryLabel: Record<BriefingCategory, string> = {
+  changed: "What Changed",
+  watch: "What To Watch",
+  working: "What's Working",
+  action: "Recommended Actions",
 };
 
 export const aiBriefing: BriefingItem[] = [
@@ -165,15 +180,21 @@ export const aiBriefing: BriefingItem[] = [
   },
   {
     id: "b2",
-    category: "attention",
+    category: "watch",
     title: "A handful of accounts show reduced activity",
     detail: "A conceptual example: multiple weeks of declining engagement is the kind of signal a future briefing might surface for review.",
   },
   {
     id: "b3",
-    category: "opportunity",
+    category: "working",
     title: "A usage trend is accelerating ahead of plan",
-    detail: "A conceptual example: an emerging positive trend is the kind of early signal a future briefing might flag for attention.",
+    detail: "A conceptual example: an emerging positive trend is the kind of early signal a future briefing might highlight as a win.",
+  },
+  {
+    id: "b4",
+    category: "action",
+    title: "Review accounts with declining engagement",
+    detail: "A conceptual example: a future briefing could suggest a next step, with the option to delegate or track ownership.",
   },
 ];
 
