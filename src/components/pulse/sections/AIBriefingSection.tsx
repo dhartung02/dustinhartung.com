@@ -13,13 +13,14 @@ export default function AIBriefingSection() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-20 text-center">
       <motion.div {...revealAnimation(reduceMotion, { opacity: 0, y: 12 }, { opacity: 1, y: 0 })}>
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Future Direction</p>
-        <h2 className="mb-4 text-3xl font-semibold md:text-4xl">Designed for future intelligence</h2>
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Executive Brief</p>
+        <h2 className="mb-4 text-3xl font-semibold md:text-4xl">A brief that&apos;s calculated, not guessed at</h2>
         <p className="mx-auto mb-10 max-w-2xl leading-7 text-slate-300">
-          While the shipped MVP focused on secure access, configurable metric cards, and executive-ready
-          telemetry views, the interaction model created a natural path toward deeper AI capability — an
-          agent connected across the full data surface, via MCP, that could offer proactive suggestions and
-          recommendations rather than just static summaries.
+          Every day, the app assembled a deterministic executive brief — What Changed, What To Watch, What&apos;s
+          Working, and Recommended Actions — calculated directly from platform and product telemetry using fixed
+          rules and thresholds, not AI. The natural next step is layering AI on top of that same trusted
+          foundation: a data-connected agent, via MCP, that could offer proactive suggestions and
+          recommendations rather than just a calculated summary.
         </p>
       </motion.div>
 
@@ -27,7 +28,7 @@ export default function AIBriefingSection() {
         className="mx-auto"
         {...revealAnimation(reduceMotion, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 })}
       >
-        <PhoneFrame label="Concept: AI Briefing" className="max-w-[340px]">
+        <PhoneFrame label="Executive Brief" className="max-w-[340px]">
           <AIBriefingScreen />
         </PhoneFrame>
       </motion.div>

@@ -23,6 +23,11 @@ export default function BehaviorIntelligenceScreen() {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Top Performing Categories</p>
+        <HorizontalBar data={behaviorIntelligence.topCategories} color="#34d399" />
+      </div>
+
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
         <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Signal Mix</p>
         <div className="flex items-center gap-3">
           <Donut data={behaviorIntelligence.signalMix} size={64} />

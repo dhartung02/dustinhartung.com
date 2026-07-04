@@ -4,9 +4,11 @@
 import { motion } from "framer-motion";
 import PhoneFrame from "../PhoneFrame";
 import PulseLogo from "../PulseLogo";
-import ExecutiveFeedScreen from "../screens/ExecutiveFeedScreen";
+import Gauge from "../charts/Gauge";
+import ProgressRing from "../charts/ProgressRing";
+import Sparkline from "../charts/Sparkline";
 import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
-import { heroFacts, disclaimerLabel, disclaimerBody } from "../content";
+import { heroFacts, disclaimerLabel, disclaimerBody, executiveFeed, statusColor } from "../content";
 
 export default function Hero() {
   const reduceMotion = usePrefersReducedMotion();
@@ -44,8 +46,31 @@ export default function Hero() {
           animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
           transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <PhoneFrame label="Executive Overview">
-            <ExecutiveFeedScreen />
+          <PhoneFrame label="Today at a Glance" scrollHint={false}>
+            <div className="flex flex-col gap-4 text-slate-100">
+              <div className="flex flex-col items-center gap-1 pt-1">
+                <Gauge value={executiveFeed.overallScore} color={statusColor[executiveFeed.overallStatus]} size={140} />
+                <p className="-mt-6 text-2xl font-semibold">{executiveFeed.overallScore}</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Executive Snapshot</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                {executiveFeed.cards.slice(0, 2).map((card) => (
+                  <div
+                    key={card.id}
+                    className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] p-2.5"
+                  >
+                    <ProgressRing value={card.score} color={statusColor[card.status]} size={48} strokeWidth={5} />
+                    <p className="text-center text-[10px] font-medium leading-tight text-slate-200">{card.label}</p>
+                    <Sparkline data={card.trend} color={statusColor[card.status]} className="h-4 w-14" />
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-center text-[10px] leading-relaxed text-slate-500">
+                Full executive snapshot, active risks, and opportunities shown below.
+              </p>
+            </div>
           </PhoneFrame>
         </motion.div>
       </div>
