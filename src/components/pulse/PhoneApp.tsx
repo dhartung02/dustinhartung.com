@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 import PhoneFrame from "./PhoneFrame";
-import { pulseTabs, type PulseTabId } from "./tabs";
+import { pulseTabs, type PulseTab } from "./tabs";
 
 type PhoneAppProps = {
-  initialTabId: PulseTabId;
+  initialTabId: string;
+  tabs?: PulseTab[];
   className?: string;
 };
 
-export default function PhoneApp({ initialTabId, className }: PhoneAppProps) {
-  const [activeId, setActiveId] = useState<PulseTabId>(initialTabId);
-  const active = pulseTabs.find((tab) => tab.id === activeId) ?? pulseTabs[0];
+export default function PhoneApp({ initialTabId, tabs = pulseTabs, className }: PhoneAppProps) {
+  const [activeId, setActiveId] = useState<string>(initialTabId);
+  const active = tabs.find((tab) => tab.id === activeId) ?? tabs[0];
   const Screen = active.screen;
 
   return (
@@ -20,7 +21,7 @@ export default function PhoneApp({ initialTabId, className }: PhoneAppProps) {
       className={className}
       tabBar={
         <div className="flex items-stretch justify-around border-t border-white/10 bg-slate-900/90">
-          {pulseTabs.map((tab) => {
+          {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = tab.id === activeId;
             return (
