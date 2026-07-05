@@ -12,9 +12,10 @@ type PhoneFrameProps = {
   label?: string;
   className?: string;
   scrollHint?: boolean;
+  tabBar?: ReactNode;
 };
 
-export default function PhoneFrame({ children, label, className = "", scrollHint = true }: PhoneFrameProps) {
+export default function PhoneFrame({ children, label, className = "", scrollHint = true, tabBar }: PhoneFrameProps) {
   const reduceMotion = usePrefersReducedMotion();
 
   return (
@@ -48,6 +49,7 @@ export default function PhoneFrame({ children, label, className = "", scrollHint
               </>
             ) : null}
           </div>
+          {tabBar}
         </div>
       </div>
     </div>

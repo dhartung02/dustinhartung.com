@@ -3,7 +3,6 @@
 
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import PhoneFrame from "../PhoneFrame";
 import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
 import { revealAnimation } from "../revealAnimation";
 
@@ -11,7 +10,6 @@ type NarrativeSectionProps = {
   eyebrow: string;
   title: string;
   bullets: string[];
-  phoneLabel: string;
   reverse?: boolean;
   children: ReactNode;
 };
@@ -20,7 +18,6 @@ export default function NarrativeSection({
   eyebrow,
   title,
   bullets,
-  phoneLabel,
   reverse = false,
   children,
 }: NarrativeSectionProps) {
@@ -49,7 +46,7 @@ export default function NarrativeSection({
           className={reverse ? "lg:order-1" : undefined}
           {...revealAnimation(reduceMotion, { opacity: 0, x: reverse ? -16 : 16 }, { opacity: 1, x: 0 })}
         >
-          <PhoneFrame label={phoneLabel}>{children}</PhoneFrame>
+          {children}
         </motion.div>
       </div>
     </section>

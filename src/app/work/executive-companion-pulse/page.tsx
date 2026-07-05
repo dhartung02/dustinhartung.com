@@ -7,9 +7,7 @@ import NarrativeSection from "@/components/pulse/sections/NarrativeSection";
 import AIBriefingSection from "@/components/pulse/sections/AIBriefingSection";
 import Outcome from "@/components/pulse/sections/Outcome";
 import Closing from "@/components/pulse/sections/Closing";
-import ExecutiveFeedScreen from "@/components/pulse/screens/ExecutiveFeedScreen";
-import CustomerIntelligenceScreen from "@/components/pulse/screens/CustomerIntelligenceScreen";
-import BehaviorIntelligenceScreen from "@/components/pulse/screens/BehaviorIntelligenceScreen";
+import PhoneApp from "@/components/pulse/PhoneApp";
 
 export const metadata: Metadata = {
   title: "Executive Companion Pulse — Dustin Hartung",
@@ -25,44 +23,28 @@ export default function ExecutiveCompanionPulsePage() {
       <MyRole />
 
       <NarrativeSection
-        eyebrow="Executive Overview"
-        title="A fast, trusted view between meetings"
-        phoneLabel="Executive Overview"
-        reverse
-        bullets={[
-          "Executives needed a glanceable, configurable view of platform and business health — not another dashboard login.",
-          "Metric cards could be configured around whatever mattered most: platform health, product adoption, customer activity, or operational status.",
-          "A secure mobile check-in replaced waiting for a desktop session or a status email.",
-        ]}
-      >
-        <ExecutiveFeedScreen />
-      </NarrativeSection>
-
-      <NarrativeSection
         eyebrow="Customer & Account Activity"
         title="Account activity, without digging through reports"
-        phoneLabel="Customer & Account Activity"
         bullets={[
           "Rather than asking executives to dig through account reports or wait for team summaries, the mobile view surfaced account activity and status indicators in a compact format for quick review.",
           "High-level activity and adoption indicators helped highlight where executive attention might be needed — not churn prediction or account intelligence modeling.",
-          "Designed for a fast read, not a full analyst workspace on a phone.",
+          "A glanceable stat could be drilled into — surfacing the underlying retail product signals (views, cart adds, abandonment, interest vs. conversion) behind it, drawing on the same product catalog work built separately.",
         ]}
       >
-        <CustomerIntelligenceScreen />
+        <PhoneApp initialTabId="customers" />
       </NarrativeSection>
 
       <NarrativeSection
-        eyebrow="Product & Usage Signals"
+        eyebrow="Adoption & Usage Metrics"
         title="Usage and behavior signals, read at a glance"
-        phoneLabel="Product & Usage Signals"
         reverse
         bullets={[
-          "The goal was to make product and behavioral telemetry readable at an executive level — not to recreate an analyst workspace on a phone.",
+          "The goal was to make internal product and platform telemetry readable at an executive level — not to recreate an analyst workspace on a phone.",
+          "Usage broken out by functional area, plus the most common paths users took through the app, helped surface where the product was working and where it wasn't.",
           "Trend indicators and freshness timestamps kept the view grounded in current data, not static reports.",
-          "Designed to reduce reliance on scattered dashboards and manual usage summaries.",
         ]}
       >
-        <BehaviorIntelligenceScreen />
+        <PhoneApp initialTabId="usage" />
       </NarrativeSection>
 
       <AIBriefingSection />

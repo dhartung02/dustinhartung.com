@@ -6,6 +6,7 @@ import { Eye, ShieldCheck, AlertTriangle, TrendingUp } from "lucide-react";
 import Gauge from "../charts/Gauge";
 import ProgressRing from "../charts/ProgressRing";
 import Sparkline from "../charts/Sparkline";
+import TrendBadge from "../charts/TrendBadge";
 import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
 import { executiveFeed, statusColor } from "../content";
 
@@ -17,7 +18,10 @@ export default function ExecutiveFeedScreen() {
       <div className="flex flex-col items-center gap-1 pt-1">
         <Gauge value={executiveFeed.overallScore} color={statusColor[executiveFeed.overallStatus]} size={140} />
         <p className="-mt-6 text-2xl font-semibold">{executiveFeed.overallScore}</p>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Executive Snapshot</p>
+        <div className="flex items-center gap-1.5">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">Executive Snapshot</p>
+          <TrendBadge deltaPct={executiveFeed.overallDeltaPct} />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-2.5">
@@ -31,6 +35,7 @@ export default function ExecutiveFeedScreen() {
             <ProgressRing value={card.score} color={statusColor[card.status]} size={48} strokeWidth={5} />
             <p className="text-center text-[10px] font-medium leading-tight text-slate-200">{card.label}</p>
             <Sparkline data={card.trend} color={statusColor[card.status]} className="h-4 w-14" />
+            <TrendBadge deltaPct={card.deltaPct} />
           </motion.div>
         ))}
       </div>

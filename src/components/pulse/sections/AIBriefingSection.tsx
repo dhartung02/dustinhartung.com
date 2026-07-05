@@ -2,8 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PhoneFrame from "../PhoneFrame";
-import AIBriefingScreen from "../screens/AIBriefingScreen";
+import PhoneApp from "../PhoneApp";
 import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
 import { revealAnimation } from "../revealAnimation";
 
@@ -28,9 +27,7 @@ export default function AIBriefingSection() {
         className="mx-auto"
         {...revealAnimation(reduceMotion, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 })}
       >
-        <PhoneFrame label="Executive Brief" className="max-w-[340px]">
-          <AIBriefingScreen />
-        </PhoneFrame>
+        <PhoneApp initialTabId="brief" className="max-w-[340px]" />
       </motion.div>
     </section>
   );

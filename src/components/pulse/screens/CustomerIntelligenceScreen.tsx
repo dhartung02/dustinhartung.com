@@ -4,6 +4,8 @@
 import { Target, AlertTriangle, TrendingUp } from "lucide-react";
 import Donut from "../charts/Donut";
 import ScatterPlot from "../charts/ScatterPlot";
+import DualLineChart from "../charts/DualLineChart";
+import TrendBadge from "../charts/TrendBadge";
 import { customerIntelligence } from "../content";
 
 const actionIcons = [Target, AlertTriangle, TrendingUp];
@@ -16,6 +18,9 @@ export default function CustomerIntelligenceScreen() {
           <div key={stat.label} className="rounded-lg border border-white/10 bg-white/[0.04] p-2 text-center">
             <p className="text-sm font-semibold text-cyan-300">{stat.value}</p>
             <p className="mt-0.5 text-[8.5px] leading-tight text-slate-400">{stat.label}</p>
+            <div className="mt-1 flex justify-center">
+              <TrendBadge deltaPct={stat.deltaPct} />
+            </div>
           </div>
         ))}
       </div>
@@ -38,6 +43,28 @@ export default function CustomerIntelligenceScreen() {
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
         <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Account Activity Overview</p>
         <ScatterPlot data={customerIntelligence.valueMatrix} xLabel="Interest" yLabel="Engagement" />
+      </div>
+
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Product Intelligence Drill-In</p>
+        <p className="mb-2 mt-0.5 text-[9px] leading-relaxed text-slate-500">
+          Drilling into a glanceable metric to see the underlying retail signals behind it.
+        </p>
+        <div className="flex flex-col gap-1.5">
+          {customerIntelligence.retailDrillIn.funnel.map((item) => (
+            <div key={item.label} className="flex items-center justify-between text-[11px] text-slate-300">
+              <span>{item.label}</span>
+              <span className="flex items-center gap-2">
+                <span className="text-slate-200">{item.value}</span>
+                <TrendBadge deltaPct={item.deltaPct} invert={item.invert} className="w-11 justify-end" />
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="mb-1.5 mt-3 text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+          Interest vs. Conversion
+        </p>
+        <DualLineChart series={customerIntelligence.retailDrillIn.trend} />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
