@@ -110,6 +110,7 @@ export const allCategories: CategoryNode[] = flattenCategories(categoryTree);
 
 export type KpiValue = { value: number; deltaPct: number };
 export type CategoryKpis = {
+  interestScore: number;
   revenue: KpiValue;
   purchases: KpiValue;
   views: KpiValue;
@@ -118,60 +119,70 @@ export type CategoryKpis = {
 
 export const kpisByScope: Record<string, CategoryKpis> = {
   all: {
+    interestScore: 73,
     revenue: { value: 1_284_500, deltaPct: 8 },
     purchases: { value: 18_420, deltaPct: 5 },
     views: { value: 412_800, deltaPct: 12 },
     cartAbandons: { value: 9_840, deltaPct: -6 },
   },
   electronics: {
+    interestScore: 80,
     revenue: { value: 412_300, deltaPct: 11 },
     purchases: { value: 5_210, deltaPct: 7 },
     views: { value: 128_400, deltaPct: 9 },
     cartAbandons: { value: 2_980, deltaPct: -3 },
   },
   "electronics-audio": {
+    interestScore: 82,
     revenue: { value: 268_400, deltaPct: 14 },
     purchases: { value: 3_120, deltaPct: 9 },
     views: { value: 78_200, deltaPct: 11 },
     cartAbandons: { value: 1_640, deltaPct: -5 },
   },
   "electronics-wearables": {
+    interestScore: 76,
     revenue: { value: 143_900, deltaPct: 6 },
     purchases: { value: 2_090, deltaPct: 4 },
     views: { value: 50_200, deltaPct: 6 },
     cartAbandons: { value: 1_340, deltaPct: 2 },
   },
   apparel: {
+    interestScore: 70,
     revenue: { value: 356_800, deltaPct: 5 },
     purchases: { value: 6_840, deltaPct: 3 },
     views: { value: 142_600, deltaPct: 8 },
     cartAbandons: { value: 3_210, deltaPct: 4 },
   },
   "apparel-mens": {
+    interestScore: 67,
     revenue: { value: 168_200, deltaPct: 4 },
     purchases: { value: 3_210, deltaPct: 2 },
     views: { value: 68_400, deltaPct: 6 },
     cartAbandons: { value: 1_520, deltaPct: 3 },
   },
   "apparel-womens": {
+    interestScore: 73,
     revenue: { value: 188_600, deltaPct: 6 },
     purchases: { value: 3_630, deltaPct: 4 },
     views: { value: 74_200, deltaPct: 9 },
     cartAbandons: { value: 1_690, deltaPct: 5 },
   },
   "home-garden": {
+    interestScore: 71,
     revenue: { value: 221_400, deltaPct: 9 },
     purchases: { value: 2_980, deltaPct: 6 },
     views: { value: 65_800, deltaPct: 7 },
     cartAbandons: { value: 1_480, deltaPct: -8 },
   },
   beauty: {
+    interestScore: 84,
     revenue: { value: 186_300, deltaPct: 13 },
     purchases: { value: 2_640, deltaPct: 10 },
     views: { value: 58_900, deltaPct: 15 },
     cartAbandons: { value: 1_210, deltaPct: -11 },
   },
   grocery: {
+    interestScore: 59,
     revenue: { value: 107_700, deltaPct: 3 },
     purchases: { value: 750, deltaPct: 1 },
     views: { value: 17_300, deltaPct: 2 },
