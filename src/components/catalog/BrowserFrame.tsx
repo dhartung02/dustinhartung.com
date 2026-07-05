@@ -11,7 +11,7 @@ export default function BrowserFrame({ children, className = "" }: BrowserFrameP
     <div
       className={`mx-auto w-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl shadow-black/50 ${className}`}
     >
-      <div className="flex items-center gap-2 border-b border-white/10 bg-neutral-950/60 px-4 py-3">
+      <div aria-hidden="true" className="flex items-center gap-2 border-b border-white/10 bg-neutral-950/60 px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-[#f43f5e]" />
         <span className="h-3 w-3 rounded-full bg-[#f59e0b]" />
         <span className="h-3 w-3 rounded-full bg-[#10b981]" />
