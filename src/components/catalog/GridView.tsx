@@ -51,18 +51,22 @@ export default function GridView({
           <div className="grid grid-cols-2 gap-1.5">
             <span className="flex items-center gap-1 text-[10px] text-slate-400">
               <TrendingUp aria-hidden="true" className="h-3 w-3 text-emerald-400" />
+              <span className="sr-only">Interest score </span>
               {product.interestScore}
             </span>
             <span className="flex items-center gap-1 text-[10px] text-slate-400">
               <DollarSign aria-hidden="true" className="h-3 w-3 text-cyan-300" />
+              <span className="sr-only">Revenue </span>
               {(product.revenue / 1000).toFixed(1)}K
             </span>
             <span className="flex items-center gap-1 text-[10px] text-slate-400">
               <Eye aria-hidden="true" className="h-3 w-3 text-slate-400" />
+              <span className="sr-only">Views </span>
               {(product.views / 1000).toFixed(1)}K
             </span>
             <span className="flex items-center gap-1 text-[10px] text-slate-400">
               <ShoppingCart aria-hidden="true" className="h-3 w-3 text-amber-400" />
+              <span className="sr-only">Cart abandons </span>
               {product.cartAbandons}
             </span>
           </div>
