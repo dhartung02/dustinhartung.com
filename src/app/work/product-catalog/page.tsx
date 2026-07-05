@@ -17,9 +17,9 @@ export default function ProductCatalogPage() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
       <Hero />
+      <CatalogAppSection />
       <CaseStudyOverview />
       <MyRole />
-      <CatalogAppSection />
       <Outcome />
       <Closing />
     </main>

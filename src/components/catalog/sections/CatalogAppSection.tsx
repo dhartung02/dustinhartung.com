@@ -18,9 +18,11 @@ export default function CatalogAppSection() {
         <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Try It</p>
         <h2 className="mb-4 text-3xl font-semibold md:text-4xl">Browse a category. Open a product.</h2>
         <p className="mx-auto max-w-2xl leading-7 text-slate-300">
-          Click through the category tree on the left, switch between list and grid view, or click any product to
-          open its analytics panel — everything below is a working, original recreation of the interaction model,
-          running on synthetic data.
+          The catalog itself became the interface: browse by category, see performance at a glance, and drill into
+          any product or category for the underlying signal — interest vs. conversion, not just a final number.
+          Try it below — click through the category tree on the left, switch between list and grid view, or click
+          any product or category to open its analytics panel. Everything below is a working, original recreation
+          of the interaction model, running on synthetic data.
         </p>
       </motion.div>
 
