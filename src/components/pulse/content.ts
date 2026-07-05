@@ -130,19 +130,27 @@ export const customerIntelligence = {
     "Prioritize outreach to accounts trending from Growing to Stable.",
     "Scale successful engagement patterns while momentum is positive.",
   ],
-  retailDrillIn: {
-    funnel: [
-      { label: "Product Views", value: "18,204", deltaPct: 6 },
-      { label: "Added to Cart", value: "4,932", deltaPct: 3 },
-      { label: "Purchased", value: "1,614", deltaPct: -4 },
-      { label: "Cart Abandoned", value: "3,318", deltaPct: 9, invert: true },
-      { label: "Browse Abandoned", value: "9,847", deltaPct: 2, invert: true },
-    ],
-    trend: [
-      { label: "Interest", color: statusColor.good, data: [52, 58, 55, 63, 68, 71] },
-      { label: "Conversion", color: statusColor.excellent, data: [24, 26, 25, 29, 31, 33] },
-    ],
-  },
+};
+
+export const productIntelligence = {
+  topCategories: [
+    { label: "Electronics", value: 88, delta: 6 },
+    { label: "Apparel", value: 74, delta: 3 },
+    { label: "Home & Garden", value: 61, delta: -2 },
+    { label: "Beauty", value: 52, delta: 9 },
+    { label: "Grocery", value: 45, delta: 1 },
+  ],
+  funnel: [
+    { label: "Product Views", value: "18,204", deltaPct: 6 },
+    { label: "Added to Cart", value: "4,932", deltaPct: 3 },
+    { label: "Purchased", value: "1,614", deltaPct: -4 },
+    { label: "Cart Abandoned", value: "3,318", deltaPct: 9, invert: true },
+    { label: "Browse Abandoned", value: "9,847", deltaPct: 2, invert: true },
+  ],
+  trend: [
+    { label: "Interest", color: statusColor.good, data: [52, 58, 55, 63, 68, 71] },
+    { label: "Conversion", color: statusColor.excellent, data: [24, 26, 25, 29, 31, 33] },
+  ],
 };
 
 export const behaviorIntelligence = {

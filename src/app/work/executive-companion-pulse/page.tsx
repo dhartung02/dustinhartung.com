@@ -28,7 +28,7 @@ export default function ExecutiveCompanionPulsePage() {
         bullets={[
           "Rather than asking executives to dig through account reports or wait for team summaries, the mobile view surfaced account activity and status indicators in a compact format for quick review.",
           "High-level activity and adoption indicators helped highlight where executive attention might be needed — not churn prediction or account intelligence modeling.",
-          "A glanceable stat could be drilled into — surfacing the underlying retail product signals (views, cart adds, abandonment, interest vs. conversion) behind it, drawing on the same product catalog work built separately.",
+          "Kept scoped to accounts and engagement — product-level signals get their own dedicated view, described next.",
         ]}
       >
         <PhoneApp initialTabId="customers" />
@@ -45,6 +45,18 @@ export default function ExecutiveCompanionPulsePage() {
         ]}
       >
         <PhoneApp initialTabId="usage" />
+      </NarrativeSection>
+
+      <NarrativeSection
+        eyebrow="Product Intelligence"
+        title="Catalog signals, without leaving the app"
+        bullets={[
+          "Built on the same product catalog capability from a separate 0→1 initiative — surfaced here as an executive-level view of what's moving.",
+          "Top-performing categories and the product funnel (views, cart adds, purchases, abandonment) gave a fast read on where interest was and wasn't converting.",
+          "A drill-in, not a full commerce dashboard — enough for an executive to spot a trend, not run a merchandising review.",
+        ]}
+      >
+        <PhoneApp initialTabId="product" />
       </NarrativeSection>
 
       <AIBriefingSection />
