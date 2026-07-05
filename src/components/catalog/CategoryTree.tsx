@@ -36,6 +36,7 @@ function TreeNode({
         {hasChildren ? (
           <button
             type="button"
+            aria-expanded={expanded}
             aria-label={expanded ? "Collapse" : "Expand"}
             onClick={() => setExpanded((v) => !v)}
             className="shrink-0"
@@ -82,7 +83,11 @@ export default function CategoryTree({ selectedCategoryId, onSelectCategory }: C
     <div className="flex h-full flex-col bg-neutral-950/40 p-3">
       <div className="mb-3 flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5">
         <Search aria-hidden="true" className="h-3.5 w-3.5 text-slate-500" />
+        <label htmlFor="category-search" className="sr-only">
+          Search categories
+        </label>
         <input
+          id="category-search"
           type="text"
           placeholder="Search categories"
           className="w-full bg-transparent text-[12px] text-slate-300 placeholder:text-slate-600 focus:outline-none"
