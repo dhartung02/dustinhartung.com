@@ -3,9 +3,9 @@
 
 import { Search } from "lucide-react";
 import TrendBadge from "../pulse/charts/TrendBadge";
-import { kpisByScope, allCategories } from "./content";
+import { kpisByScope, allCategories, segmentToastCopy } from "./content";
 
-type KpiHeaderProps = { scopeId: string };
+type KpiHeaderProps = { scopeId: string; onCreateSegment: (message: string) => void };
 
 function formatCurrency(value: number): string {
   if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
@@ -18,7 +18,7 @@ function formatCount(value: number): string {
   return `${value}`;
 }
 
-export default function KpiHeader({ scopeId }: KpiHeaderProps) {
+export default function KpiHeader({ scopeId, onCreateSegment }: KpiHeaderProps) {
   const kpis = kpisByScope[scopeId] ?? kpisByScope.all;
   const scopeLabel =
     scopeId === "all" ? "All Products" : allCategories.find((c) => c.id === scopeId)?.name ?? "All Products";
@@ -55,6 +55,10 @@ export default function KpiHeader({ scopeId }: KpiHeaderProps) {
             </div>
             <button
               type="button"
+              onClick={() => {
+                const copy = segmentToastCopy[card.label];
+                onCreateSegment(scopeId === "all" ? copy.all : copy.category(scopeLabel));
+              }}
               className="mt-2 w-full rounded-md border border-cyan-300/20 bg-cyan-300/[0.06] py-1 text-[10px] font-medium text-cyan-300"
             >
               Create Segment

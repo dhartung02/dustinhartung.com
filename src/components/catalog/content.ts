@@ -57,10 +57,11 @@ export const outcomeStatements = [
 ];
 
 export const nextUp = [
-  "Real-time filtering and saved filter views",
-  "Bulk actions across selected products or categories",
-  "AI-generated category-level narrative summaries",
-  "Deeper segment-builder integration from the analytics panel",
+  "Expanded Create Segment options — the criteria shown here, plus inverse segments (didn't purchase, didn't view, didn't abandon)",
+  "More analytics within the side panel, with more call-to-action options",
+  "Simple campaign creation directly from the catalog, via a campaign modal or slide-over",
+  "AI insights — product clusters, recommended segments, and product recommendations",
+  "A channel-sourced lens for the unified listing panel, toggled alongside the behavioral-signal view",
 ];
 
 export const closingStatement =
@@ -175,6 +176,29 @@ export const kpisByScope: Record<string, CategoryKpis> = {
     purchases: { value: 750, deltaPct: 1 },
     views: { value: 17_300, deltaPct: 2 },
     cartAbandons: { value: 460, deltaPct: 1 },
+  },
+};
+
+// ── Create Segment toast copy, by KPI card and scope ─────────────────────────
+
+export type SegmentToastCopy = { all: string; category: (categoryName: string) => string };
+
+export const segmentToastCopy: Record<string, SegmentToastCopy> = {
+  "Total Revenue": {
+    all: "Segment of individuals who made a purchase in the last 30 days created.",
+    category: (name) => `Segment of individuals who made a purchase from ${name} in the last 30 days created.`,
+  },
+  "Total Purchases": {
+    all: "Segment of individuals who made multiple purchases in the last 30 days created.",
+    category: (name) => `Segment of individuals who made multiple purchases from ${name} in the last 30 days created.`,
+  },
+  "Total Views": {
+    all: "Segment of individuals who viewed a product in the last 30 days created.",
+    category: (name) => `Segment of individuals who viewed a product in ${name} in the last 30 days created.`,
+  },
+  "Cart Abandons": {
+    all: "Segment of individuals who abandoned a product in cart in the last 30 days created.",
+    category: (name) => `Segment of individuals who abandoned a product in cart in ${name} in the last 30 days created.`,
   },
 };
 
