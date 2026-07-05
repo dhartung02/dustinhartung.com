@@ -1,7 +1,6 @@
 // src/components/pulse/screens/BehaviorIntelligenceScreen.tsx
 "use client";
 
-import Donut from "../charts/Donut";
 import HeatMap from "../charts/HeatMap";
 import HorizontalBar from "../charts/HorizontalBar";
 import UserJourney from "../charts/UserJourney";
@@ -39,20 +38,7 @@ export default function BehaviorIntelligenceScreen() {
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
         <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">Signal Mix</p>
-        <div className="flex items-center gap-3">
-          <Donut data={behaviorIntelligence.signalMix} size={64} />
-          <ul className="flex flex-1 flex-col gap-1">
-            {behaviorIntelligence.signalMix.map((slice) => (
-              <li key={slice.label} className="flex items-center justify-between text-[10px] text-slate-300">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full" style={{ backgroundColor: slice.color }} />
-                  {slice.label}
-                </span>
-                <span className="text-slate-400">{slice.value}%</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <HorizontalBar data={behaviorIntelligence.signalMix} valueFormatter={(value) => `${value}%`} />
       </div>
 
       <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">

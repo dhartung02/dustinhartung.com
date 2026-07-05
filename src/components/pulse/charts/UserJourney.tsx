@@ -39,13 +39,17 @@ export default function UserJourney({ stages, flows, color = "#22d3ee" }: UserJo
         const from = positions.get(flow.from);
         const to = positions.get(flow.to);
         if (!from || !to) return null;
-        const midX = (from.x + to.x) / 2;
-        const strokeWidth = 1 + (flow.value / maxValue) * 5;
+        // Start/end at the node's edge, not its center — otherwise the path is drawn
+        // straight through the (translucent) node pill and its label text.
+        const fromX = from.x + NODE_WIDTH / 2;
+        const toX = to.x - NODE_WIDTH / 2;
+        const midX = (fromX + toX) / 2;
+        const strokeWidth = 1 + (flow.value / maxValue) * 4;
 
         return (
           <motion.path
             key={`${flow.from}-${flow.to}`}
-            d={`M ${from.x} ${from.y} C ${midX} ${from.y}, ${midX} ${to.y}, ${to.x} ${to.y}`}
+            d={`M ${fromX} ${from.y} C ${midX} ${from.y}, ${midX} ${to.y}, ${toX} ${to.y}`}
             fill="none"
             stroke={color}
             strokeWidth={strokeWidth}
@@ -53,7 +57,7 @@ export default function UserJourney({ stages, flows, color = "#22d3ee" }: UserJo
             {...revealAnimation(
               reduceMotion,
               { opacity: 0 },
-              { opacity: 0.35 + (flow.value / maxValue) * 0.35 },
+              { opacity: 0.2 + (flow.value / maxValue) * 0.55 },
               { duration: 0.5, delay: index * 0.05 }
             )}
           />
