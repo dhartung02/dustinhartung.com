@@ -1,6 +1,4 @@
 // src/components/catalog/sections/Hero.tsx
-"use client";
-
 import { Boxes } from "lucide-react";
 import { heroFacts, disclaimerLabel, disclaimerBody } from "../content";
 
