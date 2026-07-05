@@ -27,6 +27,13 @@ const work: WorkItem[] = [
     title: "Product Catalog",
     tag: "$1.1M+ influenced ARR",
     text: "Led 0→1 strategy for a retail product intelligence capability that became a competitive differentiator across enterprise opportunities.",
+    href: "/work/product-catalog",
+    highlights: [
+      "React + TypeScript + GraphQL",
+      "Category-drilldown and analytics-panel interaction model",
+      "Product strategy, UX, and delivery",
+      "Cited as a differentiator across enterprise sales opportunities",
+    ],
   },
   {
     title: "AI Product Operating System",
