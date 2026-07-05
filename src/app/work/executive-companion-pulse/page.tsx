@@ -8,6 +8,7 @@ import AIBriefingSection from "@/components/pulse/sections/AIBriefingSection";
 import Outcome from "@/components/pulse/sections/Outcome";
 import Closing from "@/components/pulse/sections/Closing";
 import PhoneApp from "@/components/pulse/PhoneApp";
+import InternalTelemetryPhone from "@/components/pulse/InternalTelemetryPhone";
 
 export const metadata: Metadata = {
   title: "Executive Companion Pulse — Dustin Hartung",
@@ -35,16 +36,16 @@ export default function ExecutiveCompanionPulsePage() {
       </NarrativeSection>
 
       <NarrativeSection
-        eyebrow="Adoption & Usage Metrics"
-        title="Usage and behavior signals, read at a glance"
+        eyebrow="Web Behavioral Signals"
+        title="Where visitors come from, and what they do next"
         reverse
         bullets={[
-          "The goal was to make internal product and platform telemetry readable at an executive level — not to recreate an analyst workspace on a phone.",
-          "Usage broken out by functional area, plus the most common paths users took through the app, helped surface where the product was working and where it wasn't.",
+          "Real customer-facing behavioral telemetry — page views, product views, cart adds, search, and abandonment — read at an executive level, not an analyst workspace.",
+          "A traffic-source-to-signal flow showed where activity originated (direct, search, social, email) and what it turned into, alongside a straightforward view→product→cart→order funnel.",
           "Trend indicators and freshness timestamps kept the view grounded in current data, not static reports.",
         ]}
       >
-        <PhoneApp initialTabId="usage" />
+        <PhoneApp initialTabId="signals" />
       </NarrativeSection>
 
       <NarrativeSection
@@ -57,6 +58,19 @@ export default function ExecutiveCompanionPulsePage() {
         ]}
       >
         <PhoneApp initialTabId="product" />
+      </NarrativeSection>
+
+      <NarrativeSection
+        eyebrow="Internal Telemetry"
+        title="A separate lens, for a separate audience"
+        reverse
+        bullets={[
+          "Reached from a menu, not the main tab bar — an internal-only diagnostic view for the team building the product, kept fully apart from customer-facing signals.",
+          "Mobile screen views (via production RUM/observability) and web platform feature-area usage, broken out into their own tabs.",
+          "When you're in this view, none of the other tabs apply — it's effectively its own small, separate app.",
+        ]}
+      >
+        <InternalTelemetryPhone />
       </NarrativeSection>
 
       <AIBriefingSection />

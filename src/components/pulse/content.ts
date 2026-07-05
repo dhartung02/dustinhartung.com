@@ -153,34 +153,41 @@ export const productIntelligence = {
   ],
 };
 
-export const behaviorIntelligence = {
+export const signalIntelligence = {
   signalHealth: 79,
   signalHealthDeltaPct: 3,
   freshnessMinutesAgo: 6,
-  topSignals: [
-    { label: "Weekly active users", value: 92, delta: 6 },
-    { label: "Feature adoption rate", value: 84, delta: 9 },
-    { label: "Workflow completions", value: 71, delta: -2 },
-    { label: "API usage volume", value: 58, delta: 11 },
-    { label: "Report usage", value: 46, delta: -4 },
+  signalTypes: [
+    { label: "Page Viewed", value: 92, delta: 6 },
+    { label: "Product Viewed", value: 84, delta: 9 },
+    { label: "Added to Cart", value: 61, delta: -2 },
+    { label: "Order Placed", value: 58, delta: 11 },
+    { label: "Site Search", value: 46, delta: -4 },
+    { label: "Cart Abandoned", value: 39, delta: 7, invertDelta: true },
+    { label: "Session Started", value: 35, delta: 3 },
+    { label: "Profile Updated", value: 18, delta: 1 },
   ],
-  signalMix: [
-    { label: "Feature Usage", value: 38, color: statusColor.excellent },
-    { label: "Engagement", value: 29, color: statusColor.good },
-    { label: "Errors & Issues", value: 21, color: statusColor.watch },
-    { label: "Account Info", value: 12, color: "#38bdf8" },
-  ],
-  funnelEfficiency: [
-    { label: "Sessions → Active", value: 44 },
-    { label: "Active → Engaged", value: 34 },
-    { label: "Engaged → Repeat", value: 33 },
-  ],
-  topFunctionalAreas: [
-    { label: "Dashboards", value: 88, delta: 3 },
-    { label: "Reporting", value: 74, delta: 5 },
-    { label: "Data Export", value: 61, delta: -2 },
-    { label: "Integrations", value: 52, delta: 8 },
-    { label: "Mobile Access", value: 45, delta: 15 },
+  trafficSourceFlow: {
+    stages: [
+      ["Direct", "Search", "Social", "Email"],
+      ["Page Viewed", "Product Viewed", "Added to Cart"],
+    ],
+    flows: [
+      { from: "Direct", to: "Page Viewed", value: 42 },
+      { from: "Direct", to: "Product Viewed", value: 14 },
+      { from: "Search", to: "Page Viewed", value: 51 },
+      { from: "Search", to: "Product Viewed", value: 33 },
+      { from: "Search", to: "Added to Cart", value: 9 },
+      { from: "Social", to: "Page Viewed", value: 19 },
+      { from: "Social", to: "Product Viewed", value: 7 },
+      { from: "Email", to: "Product Viewed", value: 22 },
+      { from: "Email", to: "Added to Cart", value: 15 },
+    ],
+  },
+  signalFunnel: [
+    { label: "Page → Product", value: 52 },
+    { label: "Product → Cart", value: 34 },
+    { label: "Cart → Order", value: 41 },
   ],
   heatmap: [
     [0.2, 0.4, 0.3, 0.6, 0.9],
@@ -188,21 +195,32 @@ export const behaviorIntelligence = {
     [0.6, 0.7, 0.8, 0.9, 1.0],
     [0.3, 0.3, 0.2, 0.4, 0.5],
   ],
-  userJourney: {
-    stages: [
-      ["Dashboard", "Search"],
-      ["Reports", "Alerts"],
-      ["Export", "Share"],
+};
+
+export const internalTelemetry = {
+  overview: {
+    stats: [
+      { label: "Active Internal Users", value: "34", deltaPct: 8 },
+      { label: "Sessions (7d)", value: "612", deltaPct: 5 },
+      { label: "Crashes / Errors", value: "3", deltaPct: -40, invert: true },
     ],
-    flows: [
-      { from: "Dashboard", to: "Reports", value: 62 },
-      { from: "Dashboard", to: "Alerts", value: 18 },
-      { from: "Search", to: "Reports", value: 24 },
-      { from: "Search", to: "Alerts", value: 14 },
-      { from: "Reports", to: "Export", value: 51 },
-      { from: "Reports", to: "Share", value: 22 },
-      { from: "Alerts", to: "Export", value: 9 },
-      { from: "Alerts", to: "Share", value: 12 },
+  },
+  mobile: {
+    screenViews: [
+      { label: "Overview", value: 412, delta: 6 },
+      { label: "Customers", value: 268, delta: 4 },
+      { label: "Signals", value: 231, delta: 9 },
+      { label: "Product", value: 190, delta: -3 },
+      { label: "Brief", value: 155, delta: 12 },
+    ],
+  },
+  web: {
+    featureAreas: [
+      { label: "Dashboards", value: 88, delta: 3 },
+      { label: "Reporting", value: 74, delta: 5 },
+      { label: "Data Export", value: 61, delta: -2 },
+      { label: "Integrations", value: 52, delta: 8 },
+      { label: "Mobile Access", value: 45, delta: 15 },
     ],
   },
 };
