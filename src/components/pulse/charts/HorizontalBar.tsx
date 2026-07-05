@@ -5,7 +5,7 @@ import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
 import { revealAnimation } from "../revealAnimation";
 import TrendBadge from "./TrendBadge";
 
-export type BarItem = { label: string; value: number; delta?: number; invertDelta?: boolean };
+export type BarItem = { label: string; value: number; delta?: number; invertDelta?: boolean; color?: string };
 
 type HorizontalBarProps = {
   data: BarItem[];
@@ -31,7 +31,7 @@ export default function HorizontalBar({
           <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
             <motion.div
               className="h-full origin-left rounded-full"
-              style={{ width: `${(item.value / scaleMax) * 100}%`, backgroundColor: color }}
+              style={{ width: `${(item.value / scaleMax) * 100}%`, backgroundColor: item.color ?? color }}
               {...revealAnimation(reduceMotion, { scaleX: 0 }, { scaleX: 1 })}
             />
           </div>

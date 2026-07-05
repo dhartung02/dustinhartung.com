@@ -85,21 +85,21 @@ export const executiveFeed = {
   overallStatus: "good" as Status,
   overallDeltaPct: 3,
   cards: [
-    { id: "platform", label: "Platform Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91], deltaPct: 4 },
-    { id: "adoption", label: "Product Adoption", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61], deltaPct: -9 },
-    { id: "customer", label: "Customer Activity", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74], deltaPct: 6 },
-    { id: "operations", label: "Operational Status", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88], deltaPct: 12 },
-    { id: "pipeline", label: "Data Pipeline Health", score: 85, status: "good", trend: [80, 82, 81, 83, 84, 84, 85], deltaPct: 2 },
+    { id: "revenue", label: "Revenue Health", score: 91, status: "excellent", trend: [85, 86, 88, 87, 89, 90, 91], deltaPct: 12 },
+    { id: "audience", label: "Audience Health", score: 74, status: "good", trend: [70, 71, 69, 73, 72, 75, 74], deltaPct: 6 },
+    { id: "deliverability", label: "Deliverability Health", score: 88, status: "excellent", trend: [60, 64, 68, 66, 72, 78, 88], deltaPct: 4 },
     { id: "engagement", label: "Engagement Quality", score: 70, status: "good", trend: [65, 66, 68, 67, 69, 70, 70], deltaPct: 1 },
+    { id: "product", label: "Product Momentum", score: 61, status: "watch", trend: [70, 68, 65, 63, 62, 60, 61], deltaPct: -9 },
+    { id: "pipeline", label: "Pipeline Reliability", score: 85, status: "good", trend: [80, 82, 81, 83, 84, 84, 85], deltaPct: 2 },
   ] as HealthCardData[],
   risks: [
-    { id: "w1", label: "Product adoption trending down 9% this week", categoryTag: "Product", status: "watch" as Status },
-    { id: "w2", label: "3 accounts showing reduced activity this week", categoryTag: "Customer", status: "watch" as Status },
+    { id: "w1", label: "Product momentum trending down 9% this week", categoryTag: "Product", status: "watch" as Status, confidence: 82 },
+    { id: "w2", label: "3 audience segments showing reduced engagement this week", categoryTag: "Audience", status: "watch" as Status, confidence: 74 },
   ],
   opportunities: [
-    { id: "o1", label: "Platform uptime steady at 99.98% this month", categoryTag: "Platform", status: "excellent" as Status },
-    { id: "o2", label: "Engagement quality up across top accounts", categoryTag: "Customer", status: "good" as Status },
-    { id: "o3", label: "Operational status trending toward an all-time high", categoryTag: "Operations", status: "excellent" as Status },
+    { id: "o1", label: "Revenue trending toward a new high this month", categoryTag: "Revenue", status: "excellent" as Status, confidence: 88 },
+    { id: "o2", label: "Engagement quality up across top segments", categoryTag: "Engagement", status: "good" as Status, confidence: 79 },
+    { id: "o3", label: "Deliverability holding steady near an all-time high", categoryTag: "Deliverability", status: "excellent" as Status, confidence: 91 },
   ],
 };
 
@@ -205,7 +205,8 @@ export type BriefingItem = {
   id: string;
   category: BriefingCategory;
   title: string;
-  detail: string;
+  deterministicDetail: string;
+  aiEnhancedDetail: string;
 };
 
 export const briefingCategoryLabel: Record<BriefingCategory, string> = {
@@ -219,26 +220,34 @@ export const aiBriefing: BriefingItem[] = [
   {
     id: "b1",
     category: "changed",
-    title: "Product adoption dipped this week",
-    detail: "Calculated automatically from usage telemetry — a rules-based comparison against the prior period, not AI-generated.",
+    title: "Product momentum dipped this week",
+    deterministicDetail:
+      "Calculated automatically from usage telemetry — a rules-based comparison against the prior period.",
+    aiEnhancedDetail:
+      "Product momentum slipped this week, mostly concentrated in one segment — worth a quick look before it becomes a trend.",
   },
   {
     id: "b2",
     category: "watch",
-    title: "A handful of accounts show reduced activity",
-    detail: "Flagged deterministically once an account crosses a defined engagement-decline threshold.",
+    title: "A handful of accounts show reduced engagement",
+    deterministicDetail: "Flagged deterministically once an account crosses a defined engagement-decline threshold.",
+    aiEnhancedDetail:
+      "A small group of previously-active accounts have gone quiet — reaching out now, while they're still recoverable, tends to work better than waiting.",
   },
   {
     id: "b3",
     category: "working",
     title: "A usage trend is accelerating ahead of plan",
-    detail: "Surfaced by a fixed rule comparing current trend velocity against target — a calculated highlight, not a prediction.",
+    deterministicDetail: "Surfaced by a fixed rule comparing current trend velocity against target.",
+    aiEnhancedDetail: "This trend is compounding faster than the same period last quarter — a good one to double down on.",
   },
   {
     id: "b4",
     category: "action",
     title: "Review accounts with declining engagement",
-    detail: "A standing recommendation tied directly to the watch-list rule above, with delegation and ownership tracking planned as a future enhancement.",
+    deterministicDetail: "A standing recommendation tied directly to the watch-list rule above.",
+    aiEnhancedDetail:
+      "Start with the accounts with the highest historical value — the decline is early enough that personal outreach usually turns it around.",
   },
 ];
 
@@ -251,8 +260,7 @@ export const outcomeStatements = [
 ];
 
 export const nextUp = [
-  "AI-generated executive briefings",
-  "A data-connected AI agent (via MCP) with proactive suggestions",
+  "A proactive AI agent (via Model Context Protocol) that surfaces insight automatically, not just on request",
   "Explainable anomaly and risk detection",
   "Recommended follow-up workflows",
   "Delegation and ownership tracking",
