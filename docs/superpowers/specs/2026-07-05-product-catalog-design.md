@@ -74,7 +74,9 @@ Clicking a category tree node and single-clicking a category tile in the listing
 
 ## Implementation note
 
-Built as planned in `docs/superpowers/plans/2026-07-05-product-catalog.md` via subagent-driven-development (fresh implementer subagent per task, followed by independent spec-compliance and code-quality review subagents, with fix-and-re-review loops where issues were found). No structural deviations from this spec — the interaction model, the category-vs-product analytics-panel rule, and the `AnalyticsPanel`-as-sibling layout all landed exactly as designed.
+Built as planned in `docs/superpowers/plans/2026-07-05-product-catalog.md` via subagent-driven-development (fresh implementer subagent per task, followed by independent spec-compliance and code-quality review subagents, with fix-and-re-review loops where issues were found), plus a final holistic review across the whole diff. No structural deviations from this spec — the interaction model, the category-vs-product analytics-panel rule, and the `AnalyticsPanel`-as-sibling layout all landed exactly as designed.
+
+Two small documentation-accuracy corrections from the final holistic review: (1) of the four Pulse chart primitives this spec named as available for reuse, only `TrendBadge` and `DualLineChart` ended up actually used — `Sparkline` and `HorizontalBar` didn't fit anything this page needed, which is consistent with the spec's own "wherever they fit" wording, not a deviation; (2) `heroFacts` includes one more badge ("Stack: React + TypeScript + GraphQL") than the spec's Hero-facts sentence lists — added for parity with the existing homepage card copy for this same case study, not a new claim.
 
 Real issues caught and fixed during review (not deviations from spec, but genuine defects found and corrected before merge):
 - `AnalyticsPanel`'s tab state didn't reset when switching directly between two open entities without closing the panel first (could leave a blank tab body) — fixed by keying the panel's `motion.div` on entity identity.
