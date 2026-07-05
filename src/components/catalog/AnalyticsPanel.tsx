@@ -38,6 +38,7 @@ export default function AnalyticsPanel({ entity, onClose }: AnalyticsPanelProps)
     <AnimatePresence onExitComplete={() => setActiveTab("insights")}>
       {entity && (
         <motion.div
+          key={`${entity.type}:${entity.id}`}
           className="absolute inset-y-0 right-0 z-20 flex w-80 flex-col border-l border-white/10 bg-neutral-950 shadow-2xl"
           initial={reduceMotion ? { opacity: 1 } : { x: "100%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
