@@ -38,7 +38,14 @@ const work: WorkItem[] = [
   {
     title: "AI Product Operating System",
     tag: "Weeks → days",
-    text: "Built an AI-native PM workflow across PRDs, research, roadmap planning, Jira handoffs, release notes, and product knowledge management.",
+    text: "Built a system of Claude Skills that automates the PM workflow — PRDs, delivery tracking, engineering handoff, and release communication — keeping every artifact in sync.",
+    href: "/work/ai-product-operating-system",
+    highlights: [
+      "Claude Skills + Jira + Confluence",
+      "PRD, delivery record, and engineering stories kept in sync automatically",
+      "Migrated from personal tooling into a company-wide skill library",
+      "Cut PRD authoring time from weeks to days",
+    ],
   },
   {
     title: "Reqon",
