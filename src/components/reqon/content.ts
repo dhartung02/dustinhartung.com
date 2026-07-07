@@ -324,8 +324,8 @@ export const chromeExtension = {
   ] satisfies KeywordChip[],
   pipelineStats: { rolesTracked: 158, openNotApplied: 74, appliedInProcess: 55, appliedThisWeek: 12 },
   topOpportunities: [
-    { role: "Senior PM, Platform", company: "Northwind Analytics", score: 7.4 },
-    { role: "Principal PM, Growth", company: "Fernbridge Labs", score: 7.1 },
-    { role: "Group PM, Data", company: "Lumen Robotics", score: 6.8 },
+    { role: "Senior PM, Platform", company: "Northwind Analytics", score: 5.3 },
+    { role: "Principal PM, Growth", company: "Fernbridge Labs", score: 4.4 },
+    { role: "Group PM, Data", company: "Lumen Robotics", score: 3.6 },
   ],
 };
