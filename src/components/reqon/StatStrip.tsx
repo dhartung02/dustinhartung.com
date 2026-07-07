@@ -1,7 +1,7 @@
 // src/components/reqon/StatStrip.tsx
-import { statStrip } from "./content";
+import { statStrip, type StatItem } from "./content";
 
-const toneClasses: Record<string, string> = {
+const toneClasses: Record<NonNullable<StatItem["tone"]> | "default", string> = {
   default: "text-slate-100",
   amber: "text-amber-300",
   rose: "text-rose-300",
