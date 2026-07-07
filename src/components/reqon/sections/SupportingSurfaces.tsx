@@ -40,6 +40,7 @@ export default function SupportingSurfaces() {
               alt="Reqon mobile companion app showing today's pipeline summary"
               width={1320}
               height={2868}
+              sizes="280px"
               className="h-auto w-full max-w-[280px]"
             />
           </div>
