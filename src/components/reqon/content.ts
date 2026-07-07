@@ -321,11 +321,15 @@ export const chromeExtension = {
     { word: "growth", matched: false },
     { word: "senior", matched: false },
     { word: "remote", matched: false },
+    { word: "analytics", matched: false },
+    { word: "cross-functional", matched: false },
+    { word: "leadership", matched: false },
+    { word: "kpi", matched: false },
   ] satisfies KeywordChip[],
-  pipelineStats: { rolesTracked: 158, openNotApplied: 74, appliedInProcess: 55, appliedThisWeek: 12 },
+  pipelineStats: { rolesTracked: 158, openNotApplied: 74 },
   topOpportunities: [
-    { role: "Senior PM, Platform", company: "Northwind Analytics", score: 5.3 },
-    { role: "Principal PM, Growth", company: "Fernbridge Labs", score: 4.4 },
+    { role: "Senior PM, Growth", company: "Northwind Analytics", score: 5.3 },
+    { role: "Principal PM, Platform", company: "Fernbridge Labs", score: 4.4 },
     { role: "Group PM, Data", company: "Lumen Robotics", score: 3.6 },
   ],
 };
