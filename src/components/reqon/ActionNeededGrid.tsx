@@ -10,7 +10,10 @@ export default function ActionNeededGrid() {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {actionNeeded.map((card) => (
           <div key={card.title} className="rounded-lg border border-white/10 bg-white/[0.03] p-3">
-            <p className="text-xl font-semibold text-emerald-300">{card.count}</p>
+            <p className="text-xl font-semibold text-emerald-300">
+              <span className="sr-only">Count: </span>
+              {card.count}
+            </p>
             <p className="mt-1 text-[13px] font-medium text-slate-200">{card.title}</p>
             <p className="mt-1 text-[11px] leading-5 text-slate-500">{card.description}</p>
           </div>
