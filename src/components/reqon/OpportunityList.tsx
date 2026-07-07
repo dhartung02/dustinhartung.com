@@ -2,7 +2,7 @@
 import { opportunities, type TabId } from "./content";
 
 type OpportunityListProps = {
-  activeTab: TabId;
+  activeTab: Exclude<TabId, "analytics">;
   onSelectOpportunity: (id: string) => void;
 };
 
