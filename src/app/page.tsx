@@ -44,6 +44,13 @@ const work: WorkItem[] = [
     title: "Reqon",
     tag: "AI job search CRM",
     text: "Personal product build combining job pipeline management, scout search, AI fit analysis, resume tailoring, autofill, and career intelligence.",
+    href: "/work/reqon",
+    highlights: [
+      "React Native + Chrome Extension + Web",
+      "Deterministic scout + optional, budget-capped AI assistance",
+      "150+ real opportunities tracked",
+      "Solo-built and production-shipped",
+    ],
   },
   {
     title: "AI Investment Manager",
