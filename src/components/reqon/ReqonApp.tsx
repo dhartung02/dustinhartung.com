@@ -15,11 +15,16 @@ export default function ReqonApp() {
   const [activeTab, setActiveTab] = useState<TabId>("today");
   const [selectedOpportunityId, setSelectedOpportunityId] = useState<string | null>(null);
 
+  const handleSelectTab = (tab: TabId) => {
+    setActiveTab(tab);
+    setSelectedOpportunityId(null);
+  };
+
   return (
     <BrowserFrame>
       <div className="relative flex h-[640px] w-full flex-col overflow-hidden">
         <StatStrip />
-        <TabBar activeTab={activeTab} onSelectTab={setActiveTab} />
+        <TabBar activeTab={activeTab} onSelectTab={handleSelectTab} />
         <div className="flex-1 overflow-y-auto">
           {activeTab === "analytics" ? (
             <AnalyticsTab />
