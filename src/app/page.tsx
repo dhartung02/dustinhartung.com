@@ -61,8 +61,15 @@ const work: WorkItem[] = [
   },
   {
     title: "AI Investment Manager",
-    tag: "Explainable AI system",
-    text: "Personal product build focused on AI-generated portfolio briefings, evidence-backed recommendations, risk controls, and human review.",
+    tag: "Gated evidence-to-decision pipeline",
+    text: "Personal product build applying a deliberately gated, evidence-first approach to AI-assisted investing — deterministic recommendations and paper trading today, AI and real money introduced only as each gate earns trust.",
+    href: "/work/ai-investment-manager",
+    highlights: [
+      "FastAPI + Postgres + Streamlit",
+      "Human-approved recommendation packets, zero LLM calls to date",
+      "468+ commits, actively developed",
+      "Six-gate capability model: evidence → recommendations → paper trading → real money → automation",
+    ],
   },
 ];
 
