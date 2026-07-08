@@ -2,22 +2,17 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { sectionGrid, type Urgency } from "./content";
+import { usePrefersReducedMotion } from "../pulse/usePrefersReducedMotion";
+import { sectionGrid, urgencyClasses } from "./content";
 
 type SectionGridProps = {
   expandedKey: string | null;
   onToggle: (key: string) => void;
 };
 
-const urgencyClasses: Record<Urgency, string> = {
-  none: "border-white/10 bg-white/5 text-slate-400",
-  low: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
-  medium: "border-amber-300/30 bg-amber-300/10 text-amber-300",
-  high: "border-orange-400/30 bg-orange-400/10 text-orange-300",
-  critical: "border-rose-400/30 bg-rose-400/10 text-rose-300",
-};
-
 export default function SectionGrid({ expandedKey, onToggle }: SectionGridProps) {
+  const reduceMotion = usePrefersReducedMotion();
+
   return (
     <div className="grid gap-3 p-5 pt-0 md:grid-cols-2">
       {sectionGrid.map((card) => {
@@ -48,14 +43,14 @@ export default function SectionGrid({ expandedKey, onToggle }: SectionGridProps)
               {expanded && (
                 <motion.ul
                   id={detailId}
-                  initial={{ height: 0, opacity: 0 }}
+                  initial={reduceMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  exit={reduceMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
                   className="mt-3 flex flex-col gap-1.5 overflow-hidden border-t border-white/10 pt-3"
                 >
-                  {card.detail.map((line) => (
-                    <li key={line} className="flex items-start gap-2 text-[12px] leading-5 text-slate-400">
+                  {card.detail.map((line, index) => (
+                    <li key={`${card.key}-${index}`} className="flex items-start gap-2 text-[12px] leading-5 text-slate-400">
                       <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#C9A86A]" />
                       {line}
                     </li>

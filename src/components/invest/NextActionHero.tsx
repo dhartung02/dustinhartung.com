@@ -1,13 +1,5 @@
 // src/components/invest/NextActionHero.tsx
-import { nextAction, nextActionBoundary, type Urgency } from "./content";
-
-const urgencyClasses: Record<Urgency, string> = {
-  none: "border-white/10 bg-white/5 text-slate-400",
-  low: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
-  medium: "border-amber-300/30 bg-amber-300/10 text-amber-300",
-  high: "border-orange-400/30 bg-orange-400/10 text-orange-300",
-  critical: "border-rose-400/30 bg-rose-400/10 text-rose-300",
-};
+import { nextAction, nextActionBoundary, urgencyClasses } from "./content";
 
 export default function NextActionHero() {
   return (
