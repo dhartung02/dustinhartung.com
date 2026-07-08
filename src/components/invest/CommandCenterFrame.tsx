@@ -3,11 +3,17 @@ import type { ReactNode } from "react";
 
 type CommandCenterFrameProps = {
   children: ReactNode;
+  className?: string;
 };
 
-export default function CommandCenterFrame({ children }: CommandCenterFrameProps) {
+// Uses the real product's actual Streamlit theme colors (#16241C chrome bar,
+// #0E1A14 canvas) as a deliberate brand homage, not stray hardcoding — see
+// docs/superpowers/specs/2026-07-08-ai-investment-manager-design.md.
+export default function CommandCenterFrame({ children, className = "" }: CommandCenterFrameProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50">
+    <div
+      className={`mx-auto w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50 ${className}`}
+    >
       <div className="flex items-center gap-2 border-b border-white/10 bg-[#16241C] px-4 py-3" aria-hidden="true">
         <span className="h-3 w-3 rounded-full bg-rose-400/70" />
         <span className="h-3 w-3 rounded-full bg-amber-300/70" />
