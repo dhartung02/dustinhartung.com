@@ -31,7 +31,7 @@ export default function Outcome() {
           <ul className="flex flex-col gap-3">
             {nextUp.map((item) => (
               <li key={item} className="flex items-start gap-3 leading-7 text-slate-300">
-                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" />
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
                 {item}
               </li>
             ))}
