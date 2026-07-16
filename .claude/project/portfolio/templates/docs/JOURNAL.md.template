@@ -1,0 +1,9 @@
+# Engineering Journal
+
+Dated, narrated entries — one per completed job that changed behavior, per
+standards/documentation-standard.md rule 1. Newest first.
+
+## YYYY-MM-DD HH:MM
+### [Short title]
+[What changed, why, and what it affects — a human skimming this later should be able to
+reconstruct the "why" without re-reading the diff]

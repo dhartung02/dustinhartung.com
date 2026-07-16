@@ -1,0 +1,12 @@
+# CONFIG.md
+
+## Environment Variables
+[Grouped by category — core/deployment, auth, integrations, etc. Each: name, purpose, required
+vs optional, default if any. Never include real secret values — this is a reference for what
+variables exist, not their values.]
+
+### [Category 1]
+### [Category 2]
+
+## Feature Flags
+[If any — or "not applicable"]

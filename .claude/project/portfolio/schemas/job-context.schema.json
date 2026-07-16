@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://development-portfolio-ops/schemas/job-context.schema.json",
+  "title": "Job Context",
+  "description": "Shared job-context schema. flowType is canonical (matches both pilot repos' real field name); workflowType is accepted as a synonym for compatibility with the original portfolio-model proposal. See compat/reqon-mapping.md and compat/aim-mapping.md.",
+  "type": "object",
+  "required": ["jobId", "project", "title", "direction", "flowType", "priority"],
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "description": "Reqon: a UUID. AIM: a date-slug (YYYY-MM-DD-<slugified-title>). Either shape is valid."
+    },
+    "project": {
+      "type": "string",
+      "description": "Not present in either pilot repo's current context.json (each repo only ever holds its own jobs). Required going forward so a shared tool can disambiguate jobs across repos.",
+      "examples": ["reqon", "ai-investment-manager", "ir-academy", "portfolio-site"]
+    },
+    "title": { "type": "string" },
+    "direction": {
+      "type": "string",
+      "description": "Free-text requested outcome and context, as given by the human at job intake."
+    },
+    "flowType": {
+      "type": "string",
+      "enum": [
+        "new-feature", "ai-feature", "tech-refactor", "ux-polish", "bug-fix",
+        "escalation-resolution", "performance-audit", "feature-exploration",
+        "feature-build", "security-review", "production-hardening", "documentation"
+      ],
+      "description": "First 6 values are the pilot repos' existing enum values. Remaining values are additions this standard's workflows require (performance-audit, security-review are not yet recognized by either pilot's orchestrator - see workflows/performance-audit.md and workflows/security-review.md)."
+    },
+    "workflowType": {
+      "type": "string",
+      "description": "Synonym for flowType, accepted for compatibility with the original source proposal's schema naming. If both are present, flowType wins."
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3"]
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Not present in either pilot repo today. Optional; see agents/shared/risk-and-autonomy.md for the default mapping to autonomy tier."
+    },
+    "autonomyLevel": {
+      "type": "string",
+      "enum": ["autonomous", "supervised", "human-gated"],
+      "description": "Optional explicit override of the riskLevel-derived default."
+    },
+    "surfaces": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reqon: web board / mobile web / iOS / Chrome extension / backend / marketing. AIM: dashboard pages, API. Free-form per project."
+    },
+    "constraints": {
+      "description": "Reqon: array. AIM: single free-text string. Both accepted - see compat mapping docs.",
+      "oneOf": [
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "string" }
+      ]
+    },
+    "requiredLenses": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional. Advisory lenses (agents/reviewers/*.md or project-specific) PM has determined this job must invoke."
+    },
+    "optionalLenses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "acceptanceHints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional early hints toward acceptance criteria, refined by PM into the actual acceptance criteria in the product brief."
+    },
+    "screenshots": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reqon-specific today (filenames of decoded screenshot attachments); schema-neutral for other projects to adopt."
+    },
+    "projectContext": {
+      "type": "object",
+      "description": "Free-form project-specific extension point, so a project never needs to fork this schema to add a field it needs."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,17 @@
+# ARCHITECTURE.md
+
+## Tech Stack
+[Languages, frameworks, datastores — with version where it matters]
+
+### Key Dependencies
+[The handful that shape the architecture, not the full lockfile]
+
+## Directory Structure
+[Top-level layout with a one-line purpose per directory]
+
+## Key Architectural Decisions
+[Each as its own subsection: what was decided, why, what it trades off against]
+
+## Component Architecture
+[The major components/services and how they talk to each other — file:line references to the
+actual entry points]

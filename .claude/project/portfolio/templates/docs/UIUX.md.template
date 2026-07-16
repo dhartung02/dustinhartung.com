@@ -1,0 +1,17 @@
+# UIUX.md
+
+## Overview
+[Which surfaces exist, at a glance]
+
+## Navigation Patterns
+[Per surface — how a user moves between screens/pages]
+
+## Component Behaviors
+### Loading States
+### Error Handling
+### Empty States
+### Retry Behavior
+
+## Cross-Surface Patterns
+[Anything that needs to behave consistently across more than one surface — or "not
+applicable — single surface"]

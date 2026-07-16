@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://development-portfolio-ops/schemas/completion-envelope.schema.json",
+  "title": "Completion Envelope",
+  "description": "Shared completion-envelope schema. See agents/shared/completion-envelope.md for the full protocol and compat/*.md for pilot-repo field mappings.",
+  "type": "object",
+  "required": ["agent", "jobId", "status", "recommendedNextAgent", "nextStep"],
+  "properties": {
+    "agent": {
+      "type": "string",
+      "examples": ["pm", "ux", "architect", "engineer", "qa", "co-ceo"]
+    },
+    "jobId": { "type": "string" },
+    "project": {
+      "type": "string",
+      "description": "Not present in either pilot repo's current envelope; optional addition."
+    },
+    "flowType": {
+      "type": "string",
+      "description": "Optional; carried forward from job-context.flowType for convenience."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Complete", "Blocked", "Needs Decision", "Failed"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["High", "Medium", "Low"]
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Not present in either pilot repo today. Optional."
+    },
+    "branch": {
+      "type": ["string", "null"],
+      "description": "Adopted from AIM's design, not present in Reqon's current envelope schema (though Reqon's orchestrator does derive a branch name separately). Once set by Engineer, every later stage must copy it forward unchanged rather than reconstruct it."
+    },
+    "completed": { "type": "array", "items": { "type": "string" } },
+    "decisionsMade": { "type": "array", "items": { "type": "string" } },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Not present in either pilot repo's current envelope. Optional."
+    },
+    "findings": {
+      "type": "array",
+      "description": "Not present in either pilot repo's current envelope. Optional - primarily used by advisory-style roles or the Security/Performance review workflows when run as primary role.",
+      "items": {}
+    },
+    "blockedBy": { "type": "array", "items": { "type": "string" } },
+    "escalationsNeeded": { "type": "array", "items": { "type": "string" } },
+    "artifacts": {
+      "type": "object",
+      "description": "Key -> path map. Reqon's real job history shows drift toward a renamed 'artifactPaths' key on some stage-specific envelopes - 'artifacts' is canonical; don't rename it.",
+      "additionalProperties": { "type": "string" }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Not present in either pilot repo's current envelope as a structured field (both narrate validation results in prose within the artifact document instead). Optional structured mirror.",
+      "properties": {
+        "commands": { "type": "array", "items": { "type": "string" } },
+        "passed": { "type": "array", "items": { "type": "string" } },
+        "failed": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "productionImpact": {
+      "type": "object",
+      "description": "Not present in either pilot repo's current envelope as a structured field. Optional; see templates/production-impact.md for the fuller narrative version.",
+      "properties": {
+        "migration": { "type": "string" },
+        "rollback": { "type": "string" },
+        "observability": { "type": "array", "items": { "type": "string" } },
+        "supportNotes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "description": "New — serves standards/portfolio-goals.md's Build Speed and Token Optimization goals. Not present in either pilot repo's current envelope; optional, self-reported by the agent that writes the envelope (best-effort, not independently audited). Absence doesn't block anything; presence is what turns the credit-efficiency/autonomy design into measured data.",
+      "properties": {
+        "model": { "type": "string", "description": "The model this stage actually ran as, e.g. claude-opus-4-8 — compare against agents/shared credit-efficiency.md's model-tier guidance for this role." },
+        "wallClockSeconds": { "type": "number", "description": "Elapsed time for this stage, start to envelope-write." },
+        "toolCalls": { "type": "integer", "description": "Count of tool invocations this stage made, if easily countable." },
+        "tokensUsed": {
+          "type": "object",
+          "description": "Best-effort; omit fields that aren't available rather than guessing.",
+          "properties": {
+            "input": { "type": "integer" },
+            "output": { "type": "integer" },
+            "cacheRead": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "recommendedNextAgent": { "type": "string" },
+    "nextStep": { "type": "string" }
+  },
+  "additionalProperties": true
+}
