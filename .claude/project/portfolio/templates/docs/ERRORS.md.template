@@ -1,0 +1,19 @@
+<!-- auto-maintained -->
+# Critical Error Ledger
+
+## Schema
+Each entry: `ERR-YYYY-MM-DD-NNN — <one-line summary>`, severity, status, description, where
+found, fix status. See standards/documentation-standard.md rule 3 — keep the ID format and
+severity scale identical across every portfolio project.
+
+## Active Errors
+[None yet, or list them]
+
+## Resolved Errors
+[Archive — keep them, don't delete]
+
+## Error Severity Definitions
+### P0 - Critical (System Down)
+### P1 - Major (Degraded Service)
+### P2 - Minor (Feature Impact)
+### P3 - Cosmetic (Low Priority)

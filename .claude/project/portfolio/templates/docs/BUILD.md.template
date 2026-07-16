@@ -1,0 +1,18 @@
+# BUILD.md
+
+## Prerequisites
+[Runtime versions, required local tools]
+
+## Repo Layout Relevant to Building
+[Just the parts that matter for building/running, not the full ARCHITECTURE.md tour]
+
+## Build Commands
+[Per deployable surface]
+
+## Linting
+
+## Testing
+[Pointer to TEST.md for detail — this section is just "how to invoke it"]
+
+## CI/CD Pipeline
+[What runs on push/PR, what gates a merge, what triggers a deploy]

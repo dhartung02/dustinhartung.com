@@ -1,0 +1,16 @@
+# DEPLOY.md — Deployment Playbook
+
+## Known Drift
+[Anything the deploy config claims that isn't actually true in practice — check before trusting
+it]
+
+## Architecture Recap
+[Just enough to understand what's being deployed — pointer to ARCHITECTURE.md for the rest]
+
+## Pre-Deployment Checklist
+
+## Deployment Steps
+[The actual production path — numbered, concrete, including what gates it (CI, manual
+approval)]
+
+## Rollback

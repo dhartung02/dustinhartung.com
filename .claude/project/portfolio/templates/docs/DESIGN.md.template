@@ -1,0 +1,11 @@
+# DESIGN.md
+
+Not applicable if the project has no custom design system (e.g. it renders entirely through a
+framework's own default component styling) — say so explicitly in CLAUDE.md's Table of
+Contents rather than shipping an empty file.
+
+## Color Palette
+## Typography
+## Spacing / Radius
+## Component Styling Patterns
+## Visual Identity Notes

@@ -1,0 +1,15 @@
+# SECURITY.md
+
+## What's Solid (Confirmed, Not Just Assumed)
+[Only list what's actually been verified, not what's presumed to be fine]
+
+## Warnings
+### Dependencies
+### Configuration / Hardening Gaps
+### Authentication-Adjacent Design Choices Worth a Second Look
+### Path Handling
+### Automation / Operational Security
+
+## Related
+[Links to SECURITY-relevant sections elsewhere — e.g. this project's Gate rules or product
+principles, agents/reviewers/security.md if the portfolio standard is installed]

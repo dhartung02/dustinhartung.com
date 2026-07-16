@@ -1,0 +1,19 @@
+# API.md
+
+## Overview
+[What kind of API this is, who/what consumes it]
+
+## Authentication
+[Scheme, where credentials come from, session lifetime]
+
+## Base URL
+[Per environment]
+
+## Endpoints
+[Grouped by feature area, not listed exhaustively for a large surface — name the group, give
+representative endpoints, point to the code for the full route table if there are more than a
+screenful. Each representative endpoint: method, path, one-line purpose, notable request/
+response shape or error codes.]
+
+### [Category 1]
+### [Category 2]

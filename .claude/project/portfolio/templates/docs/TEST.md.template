@@ -1,0 +1,16 @@
+# TEST.md
+
+## Test Stack
+[Framework(s) per surface]
+
+## Running Tests
+[Exact commands]
+
+### Environment Gotchas
+[Anything that trips up a fresh run — confirmed by actually running the suite, not assumed]
+
+## Test Structure
+[Where tests live, how they're organized, rough count]
+
+## Coverage Picture
+[What's covered well, what's known-thin — honest, not aspirational]
