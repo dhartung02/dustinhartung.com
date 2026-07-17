@@ -49,6 +49,11 @@ here at all. The one category that does apply: this is a public-facing site, so 
 stays human-gated like everywhere else. Project-specific overrides go in `.claude/project/`,
 never inside `.claude/project/portfolio/` itself (overwritten on every re-install).
 
+**Advisory council** — 4 persona-based advisory skills (Brand Specialist, Recruiter/Hiring
+Manager, Executive, Technical Peer Reviewer) live at `.claude/skills/*/SKILL.md`, directly
+invocable via the Skill tool. See `.claude/project/advisory-council.md` for the roster and
+when to invoke each.
+
 ## Searching past Claude Code sessions
 
 This machine archives past sessions with claude-vault (SQLite + full-text search).
