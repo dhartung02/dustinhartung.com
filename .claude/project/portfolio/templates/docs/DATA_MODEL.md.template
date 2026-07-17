@@ -1,0 +1,15 @@
+# DATA_MODEL.md
+
+## Overview
+[Storage engine(s), how they relate]
+
+## Entities
+[Grouped by feature area for a large schema — name the group, give the entities in it and what
+each represents, point to schema.sql/migrations for the exhaustive column-level detail]
+
+## Migrations
+[How schema changes are made — file convention, idempotency requirements, any known gotchas
+(e.g. Reqon's/AIM's shared `;`-in-comment schema.sql gotcha, if applicable)]
+
+## Validation Rules
+[Cross-entity invariants that aren't obvious from the schema alone]

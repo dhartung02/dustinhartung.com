@@ -1,0 +1,68 @@
+<!--
+Template: CLAUDE.md — session entry point. See standards/documentation-standard.md.
+Every other required doc for this project should be linked from the Table of Contents below.
+-->
+
+# CLAUDE.md
+
+> Read me first. Every other doc is linked below.
+
+## Critical Context (Read First)
+- **Tech Stack**: [core technologies]
+- **Main File**: [primary code file and line count]
+- **Core Mechanic**: [one-line description]
+- **Key Integration**: [important external services]
+- **Platform Support**: [deployment targets]
+- **DO NOT**: [the one critical thing to avoid]
+
+## Session Startup Checklist
+[What to read/check before starting any work — e.g. check TASKS.md's Current Task, check
+JOURNAL.md's most recent entry, confirm which validation commands currently pass]
+
+## Table of Contents
+1. [Architecture](ARCHITECTURE.md)
+2. [Design Tokens](DESIGN.md) — or "not applicable — [reason]"
+3. [UI/UX Patterns](UIUX.md) — or "not applicable — [reason]"
+4. [Runtime Config](CONFIG.md)
+5. [Data Model](DATA_MODEL.md) — or "not applicable — [reason]"
+6. [API Contracts](API.md) — or "not applicable — [reason]"
+7. [Build & Release](BUILD.md)
+8. [Testing Guide](TEST.md)
+9. [Operational Playbooks](PLAYBOOKS/DEPLOY.md) — or "not applicable — [reason]"
+10. [Contributing](CONTRIBUTING.md)
+11. [Security](SECURITY.md)
+12. [Error Ledger](ERRORS.md)
+13. [Task Management](TASKS.md)
+14. [Journal](JOURNAL.md)
+15. [Portfolio agent operating model](.claude/project/portfolio/standards/agent-operating-model.md) — shared role/workflow standard, once installed
+
+## Quick Reference
+[10-15 most-accessed code locations as `file:line — description`]
+
+## Current State
+[Feature checklist — done / in progress / planned]
+
+## Development Workflow
+[5-6 steps for the common day-to-day loop]
+
+## Task Templates
+[3-5 common task walkthroughs, each: numbered steps with file:line references, a test step, a
+documentation-update step]
+
+## Anti-Patterns (Avoid These)
+[5-6 concrete mistakes, each with the reason]
+
+## Journal Update Requirements
+[When and how to write a JOURNAL.md entry — see standards/documentation-standard.md rule 1]
+
+## Task Management Integration
+[How this file's Current State / Task Templates relate to TASKS.md and this project's actual
+active-work tracking, if different (e.g. a roadmap doc)]
+
+## Version History
+[Major versions, each linking to its JOURNAL.md entry]
+
+## Project-Specific Hard Rules
+[Non-negotiables specific to this project — safety principles, compliance boundaries, whatever
+this project's version of Reqon's product principles / AIM's Gate model is. Not portable
+content — this section is expected to look different in every project.]

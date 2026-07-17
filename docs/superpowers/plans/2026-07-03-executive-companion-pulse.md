@@ -319,7 +319,12 @@ export function usePrefersReducedMotion(): boolean {
 // src/components/pulse/revealAnimation.ts
 import type { Transition } from "framer-motion";
 
-type MotionTarget = Record<string, number | string>;
+// Closed set of animatable properties — keeps this file's "transform/opacity only"
+// motion rule enforced at compile time. Extend deliberately if a new case is needed.
+type MotionTarget = Partial<Record<
+  "opacity" | "x" | "y" | "scale" | "scaleX" | "scaleY" | "strokeDashoffset",
+  number
+>>;
 
 type RevealProps = {
   initial?: MotionTarget;
@@ -760,7 +765,7 @@ export default function HeatMap({ grid, color = "#22d3ee" }: HeatMapProps) {
 - [ ] **Step 9: Typecheck and lint**
 
 Run: `npx tsc --noEmit && npm run lint`
-Expected: no errors. If TypeScript rejects `strokeDashoffset`/`scaleX`/etc. inside `initial`/`whileInView`/`animate` props, widen `MotionTarget` in `revealAnimation.ts` to `Record<string, number | string>` (already done) and confirm the prop is spread onto a `motion.*` element (not a plain DOM element) — framer-motion's target types accept arbitrary SVG presentation attributes and transform shorthands on `motion.*` components.
+Expected: no errors. `MotionTarget` is intentionally a closed union (`opacity`, `x`, `y`, `scale`, `scaleX`, `scaleY`, `strokeDashoffset`) so that animating a layout-affecting property (e.g. `width`) fails to typecheck — this is deliberate, not a bug. If a task legitimately needs a new animatable property not in this list, add it explicitly to the union in `revealAnimation.ts` rather than widening the type back to `Record<string, number | string>`. Confirm the prop is spread onto a `motion.*` element (not a plain DOM element) — framer-motion's target types accept these SVG presentation attributes and transform shorthands on `motion.*` components.
 
 - [ ] **Step 10: Commit**
 
@@ -1779,6 +1784,7 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Executive Feed"
         title="A single, trustworthy read on business health"
         phoneLabel="Executive Feed"
+        reverse
         bullets={[
           "Executives needed one glanceable score, not six dashboards spread across desktop tools.",
           "Desktop dashboards assumed a desk and free time — executives had neither between meetings.",
@@ -1792,7 +1798,6 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Customer Intelligence"
         title="From raw accounts to a value map"
         phoneLabel="Customer Intelligence"
-        reverse
         bullets={[
           "Lifecycle stage, engagement, and spend combine into one Customer Value Matrix.",
           "Segmentation replaces spreadsheets — executives see who's growing and who's at risk.",
@@ -1806,6 +1811,7 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Commerce Intelligence"
         title="Catalog performance, without the spreadsheet"
         phoneLabel="Commerce Intelligence"
+        reverse
         bullets={[
           "Revenue, category health, and inventory status roll up into one overview.",
           "Top movers surface automatically — no manual pivot tables required.",
@@ -1819,7 +1825,6 @@ export default function ExecutiveCompanionPulsePage() {
         eyebrow="Behavior Intelligence"
         title="Turning raw signals into prioritized action"
         phoneLabel="Behavior Intelligence"
-        reverse
         bullets={[
           "Behavioral signals are scored, mixed, and funneled down to what's worth acting on.",
           "A lightweight heat map shows where engagement is concentrating in real time.",
@@ -1940,7 +1945,7 @@ Then replace the `<div className="grid gap-5 md:grid-cols-2">...</div>` block (t
         {item.href ? (
           <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-cyan-300">
             View case study
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </p>
         ) : null}
       </>

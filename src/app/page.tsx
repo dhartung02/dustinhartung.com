@@ -1,28 +1,75 @@
-const work = [
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+type WorkItem = {
+  title: string;
+  tag: string;
+  text: string;
+  href?: string;
+  highlights?: string[];
+};
+
+const work: WorkItem[] = [
   {
-    title: "Executive Dashboard",
+    title: "Executive Companion Pulse",
     tag: "0→1 production mobile app",
-    text: "Conceived, built, and shipped Acoustic’s first executive mobile app using React Native, TypeScript, Okta, LaunchDarkly, DataDog, and AI-assisted development.",
+    text: "Conceived, designed, and built a 0→1 executive mobile companion that turned platform and product telemetry into a fast, trusted operating view for executives.",
+    href: "/work/executive-companion-pulse",
+    highlights: [
+      "AI-assisted development",
+      "React Native + TypeScript + Okta",
+      "LaunchDarkly feature flags + DataDog observability",
+      "Product strategy, UX, architecture, and delivery",
+      "Grew from an innovation project into an executive-sponsored initiative",
+    ],
   },
   {
     title: "Product Catalog",
     tag: "$1.1M+ influenced ARR",
     text: "Led 0→1 strategy for a retail product intelligence capability that became a competitive differentiator across enterprise opportunities.",
+    href: "/work/product-catalog",
+    highlights: [
+      "React + TypeScript + GraphQL",
+      "Category-drilldown and analytics-panel interaction model",
+      "Product strategy, UX, and delivery",
+      "Cited as a differentiator across enterprise sales opportunities",
+    ],
   },
   {
     title: "AI Product Operating System",
     tag: "Weeks → days",
-    text: "Built an AI-native PM workflow across PRDs, research, roadmap planning, Jira handoffs, release notes, and product knowledge management.",
+    text: "Built a system of Claude Skills that automates the PM workflow — PRDs, delivery tracking, engineering handoff, and release communication — keeping every artifact in sync.",
+    href: "/work/ai-product-operating-system",
+    highlights: [
+      "Claude Skills + Jira + Confluence",
+      "PRD, delivery record, and engineering stories kept in sync automatically",
+      "Migrated from personal tooling into a company-wide skill library",
+      "Cut PRD authoring time from weeks to days",
+    ],
   },
   {
     title: "Reqon",
     tag: "AI job search CRM",
     text: "Personal product build combining job pipeline management, scout search, AI fit analysis, resume tailoring, autofill, and career intelligence.",
+    href: "/work/reqon",
+    highlights: [
+      "React Native + Chrome Extension + Web",
+      "Deterministic scout + optional, budget-capped AI assistance",
+      "150+ real opportunities tracked",
+      "Solo-built and production-shipped",
+    ],
   },
   {
     title: "AI Investment Manager",
-    tag: "Explainable AI system",
-    text: "Personal product build focused on AI-generated portfolio briefings, evidence-backed recommendations, risk controls, and human review.",
+    tag: "Gated evidence-to-decision pipeline",
+    text: "Personal product build applying a deliberately gated, evidence-first approach to AI-assisted investing — deterministic recommendations and paper trading today, AI and real money introduced only as each gate earns trust.",
+    href: "/work/ai-investment-manager",
+    highlights: [
+      "FastAPI + Postgres + Streamlit",
+      "Human-approved recommendation packets, zero LLM calls to date",
+      "468+ commits, actively developed",
+      "Six-gate capability model: evidence → recommendations → paper trading → real money → automation",
+    ],
   },
 ];
 
@@ -84,16 +131,51 @@ export default function Home() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          {work.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
-            >
-              <p className="text-sm font-semibold text-cyan-300">{item.tag}</p>
-              <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-4 leading-7 text-neutral-400">{item.text}</p>
-            </article>
-          ))}
+          {work.map((item) => {
+            const cardBody = (
+              <>
+                <p className="text-sm font-semibold text-cyan-300">{item.tag}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
+                <p className="mt-4 leading-7 text-neutral-400">{item.text}</p>
+                {item.highlights ? (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-neutral-300"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                {item.href ? (
+                  <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-cyan-300">
+                    View case study
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </p>
+                ) : null}
+              </>
+            );
+
+            if (item.href) {
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300/40 hover:bg-white/[0.06]"
+                >
+                  {cardBody}
+                </Link>
+              );
+            }
+
+            return (
+              <article key={item.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+                {cardBody}
+              </article>
+            );
+          })}
         </div>
       </section>
 
