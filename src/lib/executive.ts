@@ -7,27 +7,21 @@ export type ExecutiveArtifact = {
 
 export const executiveArtifacts: ExecutiveArtifact[] = [
   {
-    title: "Leadership Philosophy",
+    title: "Product Leadership Philosophy",
     tag: "How I lead",
-    text: "The principles that shape how I lead product teams and approach the craft of product management.",
+    text: "The principles I use to connect customer value, business outcomes, technical reality, and effective execution.",
     href: "/executive/leadership-philosophy",
   },
   {
-    title: "90-Day Executive Plan",
-    tag: "How I'd start",
-    text: "How I'd assess an organization, establish priorities, and deliver early value in a new leadership role.",
+    title: "90-Day Product Leadership Plan",
+    tag: "How I enter a new organization",
+    text: "A practical approach to understanding the system, aligning around the decisions that matter, and proving progress without forcing a premature roadmap reset.",
     href: "/executive/90-day-plan",
   },
   {
-    title: "Executive SWOT Assessment",
-    tag: "How I see myself",
-    text: "An honest evaluation of my strengths, growth areas, market opportunities, and positioning for senior product leadership.",
+    title: "Leadership SWOT Assessment",
+    tag: "How I evaluate my fit",
+    text: "A direct assessment of the strengths I bring, the areas I actively manage, and the market dynamics shaping my next role.",
     href: "/executive/swot",
-  },
-  {
-    title: "Interview Positioning Framework",
-    tag: "How I communicate it",
-    text: "A consistent narrative framework for communicating my executive story across a leadership interview process.",
-    href: "/executive/interview-positioning",
   },
 ];

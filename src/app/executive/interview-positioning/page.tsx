@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import ContactCta from "@/components/shared/ContactCta";
 import { intro, pillars, prepRows } from "@/components/executive/interview-positioning/content";
 
 export const metadata: Metadata = {
   title: "Interview Positioning Framework — Dustin Hartung",
   description:
     "A consistent narrative framework for communicating Dustin Hartung's executive story across a leadership interview process.",
+  robots: { index: false, follow: false },
 };
 
 export default function InterviewPositioningPage() {
@@ -12,7 +14,7 @@ export default function InterviewPositioningPage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-4xl px-6 py-20">
         <p className="mb-6 text-sm font-medium uppercase tracking-[0.35em] text-cyan-300">
-          Executive Positioning
+          Leadership Approach
         </p>
         <h1 className="max-w-3xl text-5xl font-semibold tracking-tight md:text-6xl">
           Interview Positioning Framework
@@ -48,6 +50,8 @@ export default function InterviewPositioningPage() {
           ))}
         </div>
       </section>
+
+      <ContactCta />
     </main>
   );
 }

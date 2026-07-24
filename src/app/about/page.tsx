@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ContactCta from "@/components/shared/ContactCta";
 import { aboutEyebrow, aboutParagraphs, aboutFacts } from "@/components/about/content";
 
 export const metadata: Metadata = {
@@ -53,6 +54,8 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <ContactCta />
     </main>
   );
 }
