@@ -4,7 +4,7 @@ export type FactBadge = { label: string; value: string };
 
 export const heroFacts: FactBadge[] = [
   { label: "Product", value: "0→1 retail intelligence" },
-  { label: "Impact", value: "$1.1M+ influenced ARR" },
+  { label: "Impact", value: "Cited sales differentiator" },
   { label: "Stack", value: "React + TypeScript + GraphQL" },
   { label: "Outcome", value: "Competitive differentiator" },
 ];

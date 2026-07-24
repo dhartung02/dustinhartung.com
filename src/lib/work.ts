@@ -22,7 +22,7 @@ export const work: WorkItem[] = [
   },
   {
     title: "Product Catalog",
-    tag: "$1.1M+ influenced ARR",
+    tag: "Competitive differentiator",
     text: "Led 0→1 strategy for a retail product intelligence capability that became a competitive differentiator across enterprise opportunities.",
     href: "/work/product-catalog",
     highlights: [

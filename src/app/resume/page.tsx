@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { resumeStats, resumeIntro, resumeExperience } from "@/components/resume/content";
+import ContactCta from "@/components/shared/ContactCta";
+import {
+  resumeStats,
+  resumeIntro,
+  resumeExperience,
+  resumeEducation,
+  resumeRecognition,
+} from "@/components/resume/content";
 
 export const metadata: Metadata = {
   title: "Resume — Dustin Hartung",
@@ -66,6 +73,37 @@ export default function ResumePage() {
           </div>
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2">
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral-500">
+              Education
+            </h2>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {resumeEducation.map((item) => (
+                <li key={item} className="leading-7 text-neutral-300">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral-500">
+              Recognition
+            </h2>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {resumeRecognition.map((item) => (
+                <li key={item} className="leading-7 text-neutral-300">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <ContactCta />
     </main>
   );
 }

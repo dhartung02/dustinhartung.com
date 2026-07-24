@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
+import ContactCta from "@/components/shared/ContactCta";
 import { executiveArtifacts } from "@/lib/executive";
 
 export const metadata: Metadata = {
-  title: "Executive Positioning — Dustin Hartung",
+  title: "Leadership — Dustin Hartung",
   description:
-    "How Dustin Hartung thinks, leads, and would create value in a senior product leadership role — beyond the portfolio of what he's built.",
+    "How Dustin Hartung leads, makes product decisions, and creates value in a senior product leadership role — beyond the portfolio of what he's built.",
 };
 
 export default function ExecutivePage() {
@@ -14,25 +15,25 @@ export default function ExecutivePage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-6xl px-6 py-20">
         <p className="mb-6 text-sm font-medium uppercase tracking-[0.35em] text-cyan-300">
-          Executive Positioning
+          Leadership Approach
         </p>
         <h1 className="max-w-3xl text-5xl font-semibold tracking-tight md:text-6xl">
-          Beyond the work
+          How I lead beyond the deliverable
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-400">
           The case studies in{" "}
           <Link href="/work" className="text-cyan-300 underline underline-offset-4">
             Work
           </Link>{" "}
-          show what I’ve built. These four artifacts are meant for a different
-          audience and a different question — not what I’ve shipped, but how I
-          think, how I lead, and how I’d create value in my next executive
-          mandate.
+          show the products and systems I’ve built. These materials focus on
+          the decisions behind them: how I diagnose problems, establish
+          priorities, navigate technical and commercial trade-offs, align
+          teams, and create repeatable organizational value.
         </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           {executiveArtifacts.map((item) => (
             <Link
               key={item.href}
@@ -50,6 +51,8 @@ export default function ExecutivePage() {
           ))}
         </div>
       </section>
+
+      <ContactCta />
     </main>
   );
 }

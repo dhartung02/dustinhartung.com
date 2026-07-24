@@ -21,14 +21,16 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-2xl text-neutral-300 md:text-3xl">
-              Principal Product Manager building AI-native enterprise products where
-              strategy meets execution.
+              A Principal/Director-level product leader who combines enterprise
+              product strategy, commercial ownership, technical depth, and
+              unusually hands-on AI execution.
             </p>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-400">
-              21 years building enterprise SaaS, AI-enabled platforms, customer data
-              products, and production software — with a rare blend of product
-              strategy, technical fluency, and hands-on AI prototyping.
+              21 years building enterprise SaaS, customer data platforms,
+              AI-enabled workflows, and production software — spanning product
+              strategy, technical architecture, commercial ownership, and
+              hands-on delivery.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

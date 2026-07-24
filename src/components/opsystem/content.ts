@@ -5,7 +5,7 @@ export type FactBadge = { label: string; value: string };
 export const heroFacts: FactBadge[] = [
   { label: "System", value: "6 Claude Skills, one PM workflow" },
   { label: "Impact", value: "PRD authoring: weeks → days" },
-  { label: "Stack", value: "Claude Skills + Jira + Confluence" },
+  { label: "Stack", value: "Claude Skills + MCP + Jira + Confluence" },
   { label: "Outcome", value: "Adopted into company-wide skill library" },
 ];
 
@@ -24,7 +24,7 @@ export const caseStudyOverview = [
     eyebrow: "The Product Thesis",
     title: "Skills that read company context and write it back everywhere it needs to live",
     description:
-      "Each skill reads from the same org structure, customer feedback, and competitive context, drafts the artifact, and keeps it in sync with the others — a PRD, its delivery record, and its engineering stories update together instead of drifting apart.",
+      "Each skill reads from the same org structure, customer feedback, and competitive context, drafts the artifact, and keeps it in sync with the others — a PRD, its delivery record, and its engineering stories update together instead of drifting apart. MCP integrations let the workflows operate against the systems where product work actually lives — Jira and Confluence — rather than generating disconnected output for manual transfer, while keeping human review at every consequential handoff point.",
   },
   {
     eyebrow: "The Outcome",
@@ -43,7 +43,7 @@ export const roleLeadership = [
 
 export const roleTechnical = [
   "Claude Skills — structured markdown workflows with defined steps, reference files, and trigger phrases",
-  "Integrated with Jira and Confluence for delivery tracking and documentation",
+  "MCP integrations connecting skills directly to Jira and Confluence for delivery tracking and documentation",
   "Connected to internal company-context and customer-intelligence systems for automatic enrichment",
   "Designed handoff points between skills so one skill's output becomes another skill's input",
 ];
